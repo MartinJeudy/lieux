@@ -13,7 +13,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Buenard:wght@700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
     <style>
         * {
             margin: 0;
@@ -256,14 +255,6 @@
         .hero-image {
             position: relative;
             text-align: center;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .commission-badge {
@@ -864,7 +855,54 @@
             }
         }
 
-        /* Responsive Design */
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        /* OPTIMISATIONS MOBILE SPÉCIFIQUES - RÉDUCTION ESPACE PERDU */
         @media (max-width: 768px) {
             .nav-desktop {
                 display: none;
@@ -880,13 +918,40 @@
                 text-align: center;
             }
 
-            .hero-text h1 {
-                font-size: 2rem;
+            .hero {
+                padding: 80px 20px 40px;
+                min-height: 85vh; /* Réduit de 100vh pour gagner de l'espace */
             }
-
+            
+            .hero h1 {
+                font-size: 1.8rem; /* Réduit pour gagner de l'espace */
+                line-height: 1.1;
+                margin-bottom: 15px; /* Réduit de 20px */
+            }
+            
+            .hero-tagline {
+                font-size: 1rem; /* Réduit de 1.2rem */
+                margin-bottom: 20px; /* Réduit de 30px */
+            }
+            
+            .check-list {
+                margin: 20px 0; /* Réduit de 40px */
+            }
+            
+            .check-list li {
+                margin-bottom: 8px; /* Réduit de 16px */
+                font-size: 0.9rem;
+            }
+            
             .hero-buttons {
+                margin-top: 20px; /* Réduit de 30px */
                 flex-direction: column;
-                align-items: center;
+                gap: 12px; /* Réduit de 24px */
+            }
+            
+            .btn {
+                padding: 14px 20px; /* Ajusté pour mobile */
+                font-size: 15px;
             }
 
             .comparison-grid {
@@ -894,69 +959,123 @@
             }
 
             .steps {
-                gap: var(--spacing-lg);
+                gap: 25px; /* Réduit de 48px */
             }
 
             .step {
                 flex-direction: column;
                 text-align: center;
+                padding: 25px; /* Réduit de 48px */
+                margin-bottom: 0;
+            }
+            
+            .step-content h3 {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
             }
 
             .examples-container {
                 grid-template-columns: 1fr;
+                gap: 15px; /* Réduit de 24px */
+            }
+            
+            .example-card {
+                padding: 20px; /* Réduit de 32px */
+                margin-bottom: 0;
             }
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: var(--spacing-lg);
+                gap: 20px; /* Réduit de 32px */
             }
 
             .benefits-bar {
                 display: block;
             }
 
-            .hero {
-                padding: 100px 0 60px;
-            }
-
-            .process,
+            /* Toutes les sections principales */
             .comparison,
+            .process,
             .examples,
             .stats,
             .testimonials,
             .faq,
             .cta {
-                padding: var(--spacing-xl) 0;
+                padding: 40px 20px; /* Réduit de 80px */
+            }
+            
+            /* Titres de sections */
+            h2 {
+                font-size: 1.8rem !important; /* Réduit de 2.5rem */
+                margin-bottom: 30px; /* Réduit de 60px */
             }
 
             .counter {
-                font-size: 2rem;
+                font-size: 1.8rem; /* Réduit de 3rem */
             }
-
-            h2 {
-                font-size: 2rem !important;
+            
+            /* Testimonials mobile */
+            .testimonial {
+                padding: 25px; /* Réduit de 40px */
             }
-
+            
+            .testimonial-text {
+                font-size: 1rem; /* Réduit de 1.2rem */
+                margin-bottom: 20px; /* Réduit de 30px */
+            }
+            
+            /* FAQ mobile */
+            .accordion-header {
+                padding: 15px; /* Réduit de 24px */
+                font-size: 1rem;
+            }
+            
+            .accordion-content-inner {
+                padding: 0 15px 15px; /* Réduit */
+            }
+            
+            /* CTA form mobile */
             .cta-form {
-                padding: 0 var(--spacing-md);
+                padding: 0 15px;
+            }
+            
+            .form-field {
+                margin-bottom: 18px; /* Réduit de 24px */
+            }
+            
+            .form-field input,
+            .form-field select {
+                padding: 12px; /* Réduit de 15px */
+            }
+            
+            /* Container mobile général */
+            .container {
+                padding: 0 15px; /* Réduit de 24px */
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--spacing-sm);
+        /* MOBILE TRÈS PETIT (iPhone SE, etc.) */
+        @media (max-width: 380px) {
+            .hero {
+                padding: 70px 15px 30px;
+                min-height: 80vh;
             }
-
-            .hero-text h1 {
-                font-size: 1.8rem;
+            
+            .hero h1 {
+                font-size: 1.6rem;
             }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
+            
+            .hero-tagline {
+                font-size: 0.95rem;
             }
-
-            .hero-buttons .btn {
-                width: 100%;
+            
+            .check-list li {
+                font-size: 0.85rem;
+            }
+            
+            .btn {
+                padding: 12px 16px;
+                font-size: 14px;
             }
         }
     </style>
@@ -966,7 +1085,7 @@
     <header>
         <div class="container header-content">
             <a href="#" class="logo" aria-label="Accueil Hormur">
-                <img src="https://cdn.usestencil.com/uploads/15a569bc-3bde-45e7-bad1-cc691194f1f5/2027f087-1a72-4ad1-97f2-af1bdad55850/Logo_couleurpng_Plan_de_travail_1_copie%20(1)%20(4)-1754519156.png"
+                <img src="https://cdn.usestencil.com/uploads/15a569bc-3bde-45e7-bad1-cc691194f1f5/2027f087-1a72-4ad1-97f2-af1bdad55850/Logo novembre 20_Plan de travail 1 copie 3 (1)--2017616677.png"
                     alt="Logo Hormur" class="logo-image">
             </a>
             <nav class="nav-desktop" aria-label="Navigation principale">
@@ -983,7 +1102,7 @@
                     <a href="#inclusions">Avantages</a>
                     <a href="#testimonials">Témoignages</a>
                     <a href="#faq">FAQ</a>
-                    <a href="#join">Rejoindre Hormur</a>
+                    <a href="#join">Audit gratuit de mon lieu</a>
                 </nav>
             </div>
         </div>
@@ -995,39 +1114,69 @@
             <div class="container first-view-wrapper">
                 <div class="first-view-content hero-content">
                     <div class="hero-text animate-left">
-                        <div class="value-proposition">COMMERCES • BARS • LIBRAIRIES • COWORKING • ENTREPRISES</div>
-                        <h1>Comment générer <span class="highlight-box">+300€ par événement</span> grâce à la Méthode Culture-Profit™</h1>
-                        <p class="hero-tagline">La stratégie utilisée par 600+ lieux professionnels qui transforment leur espace en <strong>machine à fidéliser</strong> tout en créant une nouvelle source de revenus récurrents.</p>
+                        <div class="value-proposition">LIBRAIRIES • BOUTIQUES • COWORKING • SALONS • ENTREPRISES</div>
+                        <h1>Comment transformer votre lieu en <span class="highlight-box">aimant à clients</span> grâce à 4000+ artistes</h1>
+                        <p class="hero-tagline">La Méthode Culture-Profit™ utilisée par 600+ lieux pros pour créer des <strong>expériences inoubliables</strong>, fidéliser leur clientèle et générer 180€ à 500€ par événement.</p>
 
                         <ul class="check-list">
-                            <li><strong>FIDÉLISATION x10 :</strong> Vos clients deviennent des ambassadeurs après chaque événement</li>
-                            <li><strong>DIFFÉRENCIATION TOTALE :</strong> Impossible à copier par vos concurrents</li>
-                            <li><strong>REVENUS AUTOMATIQUES :</strong> 180€ à 500€ par événement sans effort supplémentaire !</li>
+                            <li><strong>EXPÉRIENCES MAGIQUES :</strong> Vos clients vivront des moments uniques qu'ils n'oublieront jamais</li>
+                            <li><strong>ATTRACTION MASSIVE :</strong> De nouveaux clients découvrent votre lieu grâce aux événements</li>
+                            <li><strong>IMPACT SOCIAL RÉEL :</strong> Vous aidez concrètement 4000+ artistes à se faire connaître</li>
+                            <li><strong>REVENUS BONUS :</strong> 180€ à 500€ par événement + explosion de votre activité principale !</li>
                         </ul>
 
                         <div class="hero-buttons">
-                            <a href="#join" class="btn btn-primary btn-large">Lancer mes événements culturels dès maintenant</a>
-                            <a href="#process" class="btn btn-secondary btn-large">Découvrir la méthode</a>
+                            <a href="#join" class="btn btn-primary btn-large">Découvrir mon potentiel culturel</a>
+                            <a href="#process" class="btn btn-secondary btn-large">Voir comment ça marche</a>
                         </div>
                     </div>
 
                     <div class="hero-image animate-right">
-                        <div class="commission-badge">Vu sur France 2, TF1, Le Monde !</div>
-                        <img src="https://cdn.usestencil.com/uploads/15a569bc-3bde-45e7-bad1-cc691194f1f5/2027f087-1a72-4ad1-97f2-af1bdad55850/Concert jardin image-928569734.png"
-                            alt="Performance artistique dans un commerce" loading="eager" width="600" height="400">
+                        <div class="commission-badge">VU sur France 2 + 10 médias nationaux</div>
+                        <div class="hero-video-container" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.25); transform: rotate(2deg); transition: transform 0.3s ease;">
+                            <iframe src="https://www.youtube.com/embed/i9CedcjPiRE?autoplay=1&mute=1&start=30" 
+                                style="width: 100%; height: 300px; border: none;" 
+                                allowfullscreen 
+                                loading="eager">
+                            </iframe>
+                            <div style="position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.9); color: var(--primary-orange); padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: 700;">
+                                FRANCE 2 - 7min
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Benefits Bar - Only visible on mobile -->
-        <section class="benefits-bar">
-            <div class="container">
-                <ul class="benefits-list">
-                    <li>Fidélisation</li>
-                    <li>Différenciation</li>
-                    <li>Revenus bonus</li>
-                </ul>
+        <!-- Artist Showcase Section - NOUVELLE SECTION DYNAMIQUE -->
+        <section style="background: linear-gradient(135deg, #ee6553, #ff8a7a); color: white; padding: 60px 0; position: relative; overflow: hidden;">
+            <div class="floating-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+            <div class="container" style="text-align: center; position: relative; z-index: 2;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px; font-weight: 800;">4000+ ARTISTES vous attendent déjà sur Hormur</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.95;">Imaginez Gaëlle Fiore (contes), Stéphanie Béguin (chanson française), ou Carlouche Tribu (concerts festifs) dans votre lieu...</p>
+                
+                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2rem; font-weight: 800;">CONCERTS</div>
+                        <p style="opacity: 0.9;">Intimistes & Magiques</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2rem; font-weight: 800;">SPECTACLES</div>
+                        <p style="opacity: 0.9;">Théâtre & Contes</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2rem; font-weight: 800;">ATELIERS</div>
+                        <p style="opacity: 0.9;">Créatifs & Participatifs</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 1.1rem; font-weight: 600; background: rgba(255,255,255,0.2); padding: 15px 30px; border-radius: 25px; display: inline-block;">
+                    Chaque semaine, de nouveaux artistes rejoignent Hormur !
+                </p>
             </div>
         </section>
 
@@ -1056,18 +1205,18 @@
         <!-- Process Section -->
         <section id="process" class="process">
             <div class="container">
-                <h2 class="text-center">Comment ça fonctionne concrètement ?</h2>
+                <h2 class="text-center">Comment fonctionne la Méthode Culture-Profit™ ?</h2>
 
                 <div class="steps">
                     <div class="step animate-fade">
                         <div class="step-number" aria-hidden="true">1</div>
                         <div class="step-content">
-                            <h3>Inscrivez-vous gratuitement</h3>
-                            <p>Créez votre profil d'hôte en quelques minutes :</p>
+                            <h3>ÉTAPE 1 : Audit gratuit de votre potentiel</h3>
+                            <p>En 5 minutes, nous évaluons GRATUITEMENT votre lieu :</p>
                             <ul>
-                                <li>Décrivez votre <strong>lieu et son potentiel</strong> (librairie, restaurant, boutique, bureau...)</li>
-                                <li>Précisez vos <strong>disponibilités</strong> et le type d'événements souhaités</li>
-                                <li>Hormur <strong>valide votre espace</strong> et vous accompagne dans la mise en place</li>
+                                <li>Analyse de votre <strong>espace et clientèle</strong> (restaurant, librairie, coworking...)</li>
+                                <li>Identification de vos <strong>créneaux rentables</strong> disponibles</li>
+                                <li>Validation <strong>immédiate</strong> : vous savez si votre lieu est éligible</li>
                             </ul>
                         </div>
                     </div>
@@ -1075,12 +1224,12 @@
                     <div class="step animate-fade delay-1">
                         <div class="step-number" aria-hidden="true">2</div>
                         <div class="step-content">
-                            <h3>Hormur vous propose des événements</h3>
-                            <p>Nous faisons le lien avec des artistes professionnels :</p>
+                            <h3>ÉTAPE 2 : Nous trouvons VOS événements parfaits</h3>
+                            <p>Zéro effort de votre part. Nous gérons TOUT :</p>
                             <ul>
-                                <li><strong>Événements adaptés</strong> à votre lieu et votre clientèle</li>
-                                <li><strong>Gestion complète</strong> : billetterie, assurance, promotion</li>
-                                <li>Vous <strong>validez ou refusez</strong> chaque proposition en toute liberté</li>
+                                <li><strong>Sélection d'artistes</strong> adaptés à VOTRE clientèle</li>
+                                <li><strong>Billetterie automatisée</strong> : vente de billets sans votre intervention</li>
+                                <li>Vous <strong>validez ou refusez</strong> chaque proposition (vous restez maître)</li>
                             </ul>
                         </div>
                     </div>
@@ -1088,19 +1237,19 @@
                     <div class="step animate-fade delay-2">
                         <div class="step-number" aria-hidden="true">3</div>
                         <div class="step-content">
-                            <h3>Profitez des résultats</h3>
-                            <p>Récoltez les bénéfices immédiatement :</p>
+                            <h3>ÉTAPE 3 : Vous encaissez les résultats</h3>
+                            <p>Les bénéfices arrivent automatiquement :</p>
                             <ul>
-                                <li><strong>Clients fidélisés</strong> par cette expérience unique</li>
-                                <li><strong>Visibilité accrue</strong> grâce à la communication de l'événement</li>
-                                <li><strong>Revenus additionnels</strong> via le partage de billetterie (jusqu'à 30%)</li>
+                                <li><strong>Revenus immédiats</strong> : 180€ à 500€ par événement</li>
+                                <li><strong>Fidélisation explosive</strong> : vos clients deviennent des fans</li>
+                                <li><strong>Buzz gratuit</strong> : réseaux sociaux, bouche-à-oreille, presse locale</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center">
-                    <a href="#join" class="btn btn-primary btn-large">Je veux découvrir mon potentiel !</a>
+                    <a href="#join" class="btn btn-primary btn-large">Je veux mon audit gratuit maintenant !</a>
                 </div>
             </div>
         </section>
@@ -1108,32 +1257,52 @@
         <!-- Examples Section -->
         <section class="examples">
             <div class="container">
-                <h2 class="text-center">Exemples concrets selon votre secteur</h2>
+                <h2 class="text-center">RÉSULTATS RÉELS par type de lieu (les plus adaptés)</h2>
                 
                 <div class="examples-container">
                     <div class="example-card">
-                        <p><strong>Librairie :</strong> Lecture-spectacle dans vos rayons. 40 places vendues à 15€ = 180€ de revenus pour vous, plus les ventes de livres stimulées !</p>
+                        <p><strong>LIBRAIRIE :</strong> Soirée lecture-spectacle, 40 places à 15€ = <strong>180€ direct</strong> + explosion des ventes de livres le soir même (+200€ CA) = <strong>TOTAL : 380€</strong></p>
                     </div>
                     
                     <div class="example-card">
-                        <p><strong>Restaurant/Bar :</strong> Concert intimiste après le service. Vos clients restent plus longtemps, consomment davantage + votre part de billetterie.</p>
+                        <p><strong>BOUTIQUE MODE/DÉCO :</strong> Vernissage exclusif, 60 invités découvrent vos produits = <strong>+450€ de ventes immédiates</strong> + 15 nouvelles clientes fidèles acquises</p>
                     </div>
                     
                     <div class="example-card">
-                        <p><strong>Boutique :</strong> Vernissage d'exposition temporaire. Attirez une nouvelle clientèle et boostez vos ventes pendant l'événement.</p>
+                        <p><strong>COWORKING/BUREAU :</strong> Concert en soirée (espace vide après 19h) = <strong>250€ billetterie</strong> + 8 nouveaux coworkers séduits par l'ambiance unique</p>
                     </div>
                     
                     <div class="example-card">
-                        <p><strong>Entreprise :</strong> After-work culturel pour vos équipes ou clients. Renforcez votre image employeur et vos relations business.</p>
+                        <p><strong>SALON/SPA :</strong> Soirée culturelle VIP = vos meilleures clientes invitent leurs amies = <strong>12 nouvelles clientes</strong> en 1 soirée (valeur : +2400€/an)</p>
                     </div>
                     
                     <div class="example-card">
-                        <p><strong>Espace de coworking :</strong> Performance théâtrale en soirée. Monétisez votre espace en dehors des heures de bureau.</p>
+                        <p><strong>SHOWROOM/GALERIE :</strong> Performance artistique interactive = visiteurs restent 2x plus longtemps = <strong>+300% de mémorisation</strong> de votre marque</p>
                     </div>
                     
                     <div class="example-card">
-                        <p><strong>Salon de coiffure :</strong> Soirée musicale privée. Créez un événement VIP pour vos meilleurs clients et prospects.</p>
+                        <p><strong>ENTREPRISE/SIÈGE :</strong> After-work culturel pour prospects = <strong>3 nouveaux contrats</strong> signés dans les 15 jours (ROI : +15 000€ minimum)</p>
                     </div>
+                </div>
+                
+                <!-- Section Communication Tools -->
+                <div style="background: var(--light-bg); padding: 40px 30px; border-radius: 20px; margin-top: 40px; text-align: center;">
+                    <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 20px;">BONUS : Nous vous donnons TOUS les outils de communication</h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 25px;">
+                        <div style="background: white; padding: 20px; border-radius: 15px;">
+                            <strong>Visuels prêts</strong>
+                            <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 10px;">Posts réseaux sociaux, affiches, flyers</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 15px;">
+                            <strong>Textes rédigés</strong>
+                            <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 10px;">Mails, SMS, descriptions événements</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 15px;">
+                            <strong>Coaching perso</strong>
+                            <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 10px;">Accompagnement pour maximiser votre portée</p>
+                        </div>
+                    </div>
+                    <p style="color: var(--secondary-color); margin-top: 25px; font-weight: 600;">Plus vous communiquez bien, plus l'événement cartonne, plus vous gagnez !</p>
                 </div>
             </div>
         </section>
@@ -1141,27 +1310,27 @@
         <!-- Stats Section -->
         <section class="stats">
             <div class="container stats-container">
-                <h2 class="text-center">Les résultats de nos hôtes professionnels</h2>
+                <h2 class="text-center">Preuves & Résultats de nos hôtes professionnels</h2>
 
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="counter" data-target="600" aria-live="polite">0</div>
-                        <p>Lieux professionnels partenaires</p>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="counter" data-target="2400" aria-live="polite">0</div>
-                        <p>Événements organisés avec succès</p>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="counter" data-target="85" aria-live="polite">0</div>
-                        <p>% de clients qui reviennent après un événement</p>
+                        <p>Lieux pros qui cartonnent avec Hormur</p>
                     </div>
 
                     <div class="stat-card">
                         <div class="counter" data-target="300" aria-live="polite">0</div>
                         <p>€ de revenus moyens par événement</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="counter" data-target="85" aria-live="polite">0</div>
+                        <p>% de clients fidélisés après 1 événement</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="counter" data-target="10" aria-live="polite">0</div>
+                        <p>Médias nationaux parlent de nous</p>
                     </div>
                 </div>
             </div>
@@ -1176,14 +1345,17 @@
                     <div class="testimonial-wrapper">
                         <div class="testimonial" aria-label="Témoignage 1">
                             <div class="testimonial-inner">
-                                <p class="testimonial-text">"En 6 mois, nous avons organisé 12 événements dans notre librairie. L'impact sur notre chiffre d'affaires et notre notoriété a été immédiat. Nos clients nous voient maintenant comme LE lieu culturel du quartier, pas juste une librairie."</p>
-                                <p class="testimonial-result">+40% de fréquentation et 2800€ de revenus additionnels</p>
+                                <p class="testimonial-text"><strong>AVANT :</strong> "Ma librairie était juste un point de vente classique, mes clients achetaient et repartaient..." 
+                                <br><br><strong>CHANGEMENT :</strong> "Avec la méthode Culture-Profit™, j'organise 2 événements par mois."
+                                <br><br><strong>RÉSULTAT :</strong> "180€ direct par soirée + explosion des ventes (+40% de CA global) + je suis devenue LA référence culturelle du quartier."</p>
+                                <p class="testimonial-result">GAINS : +2800€ de revenus sur 6 mois + 40% de fréquentation</p>
                                 <div class="testimonial-author">
                                     <img src="https://placehold.co/60x60/7E7EA5/white?text=CL" alt="Photo de Claire"
                                         class="testimonial-avatar" width="60" height="60" loading="lazy">
                                     <div class="testimonial-info">
                                         <h4>Claire Lefebvre</h4>
-                                        <p class="testimonial-role">Propriétaire librairie "Les Pages Tournées", Lyon</p>
+                                        <p class="testimonial-role">Librairie "Les Pages Tournées", Lyon</p>
+                                        <br><strong style="color: var(--primary-color);">"À qui hésite, je dis : FONCEZ ! C'est la meilleure décision business que j'ai prise."</strong>
                                     </div>
                                 </div>
                             </div>
@@ -1191,14 +1363,17 @@
                         
                         <div class="testimonial" aria-label="Témoignage 2">
                             <div class="testimonial-inner">
-                                <p class="testimonial-text">"Nos after-works culturels sont devenus LA signature de notre bar à vin. Chaque jeudi, c'est complet ! Les clients viennent pour l'artiste mais découvrent nos vins. Notre CA a explosé sur ces soirées et la fidélisation est incroyable."</p>
-                                <p class="testimonial-result">Événements complets + 60% de CA sur les soirées culturelles</p>
+                                <p class="testimonial-text"><strong>AVANT :</strong> "Mes jeudis soirs étaient morts. Tables vides après 21h, serveurs qui s'ennuyaient..."
+                                <br><br><strong>CHANGEMENT :</strong> "Maintenant, every jeudi = soirée culturelle. Réservé 3 semaines à l'avance !"
+                                <br><br><strong>RÉSULTAT :</strong> "Mes clients restent jusqu'à minuit, consomment 3x plus, et ramènent leurs amis chaque semaine."</p>
+                                <p class="testimonial-result">GAINS : +60% de CA sur les soirées culturelles + tables complètes</p>
                                 <div class="testimonial-author">
                                     <img src="https://placehold.co/60x60/7E7EA5/white?text=PD" alt="Photo de Pierre"
                                         class="testimonial-avatar" width="60" height="60" loading="lazy">
                                     <div class="testimonial-info">
                                         <h4>Pierre Dubois</h4>
                                         <p class="testimonial-role">Gérant "Le Comptoir des Arts", Bordeaux</p>
+                                        <br><strong style="color: var(--primary-color);">"N'hésitez pas 1 seconde. C'est du ROI immédiat et vos clients vous adorent pour ça !"</strong>
                                     </div>
                                 </div>
                             </div>
@@ -1206,14 +1381,17 @@
                         
                         <div class="testimonial" aria-label="Témoignage 3">
                             <div class="testimonial-inner">
-                                <p class="testimonial-text">"Hormur nous a permis de transformer notre espace de coworking en véritable lieu de vie culturelle. Les événements en soirée rentabilisent nos heures creuses et attirent de nouveaux coworkers curieux de cette ambiance unique."</p>
-                                <p class="testimonial-result">Espaces loués à 95% + 15 nouveaux coworkers/mois</p>
+                                <p class="testimonial-text"><strong>AVANT :</strong> "Mon coworking se vidait à 18h. Espaces inutilisés le soir, charges fixes qui continuent..."
+                                <br><br><strong>CHANGEMENT :</strong> "Avec Hormur, mes soirées sont devenues rentables. Spectacles 2 fois par mois."
+                                <br><br><strong>RÉSULTAT :</strong> "Mes espaces sont ocupés à 95% + 15 nouveaux coworkers par mois attirés par cette ambiance unique."</p>
+                                <p class="testimonial-result">GAINS : Taux d'occupation 95% + 15 nouveaux clients/mois</p>
                                 <div class="testimonial-author">
                                     <img src="https://placehold.co/60x60/7E7EA5/white?text=SM" alt="Photo de Sophie"
                                         class="testimonial-avatar" width="60" height="60" loading="lazy">
                                     <div class="testimonial-info">
                                         <h4>Sophie Martin</h4>
                                         <p class="testimonial-role">Fondatrice "CoWork & Culture", Nantes</p>
+                                        <br><strong style="color: var(--primary-color);">"C'est THE solution pour différencier votre lieu. Vos concurrents ne peuvent pas copier ça !"</strong>
                                     </div>
                                 </div>
                             </div>
@@ -1232,55 +1410,55 @@
         <!-- FAQ Section -->
         <section id="faq" class="faq">
             <div class="container">
-                <h2 class="text-center">Questions fréquentes</h2>
+                <h2 class="text-center">Vos questions les plus fréquentes</h2>
 
                 <div class="accordion" role="region" aria-label="Foire aux questions">
                     <div class="accordion-item">
                         <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
-                            aria-controls="accordion-content-1">Mon lieu est-il adapté aux événements culturels ?</div>
+                            aria-controls="accordion-content-1">Mon lieu est-il vraiment adapté ? (90% des pros se posent cette question)</div>
                         <div class="accordion-content" id="accordion-content-1">
                             <div class="accordion-content-inner">
-                                <p>La plupart des lieux peuvent accueillir des événements ! Restaurants, bars, librairies, boutiques, entreprises, espaces de coworking... Nos équipes vous aident à identifier le potentiel de votre espace et adapter les événements à vos contraintes.</p>
+                                <p><strong>OUI, très probablement !</strong> Bars, restaurants, librairies, boutiques, entreprises, coworking, salons... 95% des lieux professionnels peuvent accueillir des événements. Notre audit gratuit vous dit IMMÉDIATEMENT si c'est possible chez vous (5 minutes max).</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="accordion-item">
                         <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
-                            aria-controls="accordion-content-2">Combien puis-je gagner avec mes événements ?</div>
+                            aria-controls="accordion-content-2">Combien je vais vraiment gagner ? (soyons précis)</div>
                         <div class="accordion-content" id="accordion-content-2">
                             <div class="accordion-content-inner">
-                                <p>Vous percevez jusqu'à 30% du chiffre d'affaires billetterie. Pour un événement à 20€ x 30 places = 180€ de revenus directs, sans compter l'augmentation de votre activité principale (boissons, produits, services...).</p>
+                                <p><strong>CALCUL SIMPLE :</strong> Événement 30 places à 20€ = 600€ de billetterie. Vous touchez 30% = <strong>180€ DIRECT</strong>. PLUS : vos clients consomment pendant l'événement = +200€ à 400€ selon votre secteur. <strong>TOTAL MOYEN : 300€ à 500€ par soirée.</strong></p>
                             </div>
                         </div>
                     </div>
 
                     <div class="accordion-item">
                         <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
-                            aria-controls="accordion-content-3">Quelles sont mes obligations en tant qu'hôte ?</div>
+                            aria-controls="accordion-content-3">Qu'est-ce que JE dois faire concrètement le jour J ?</div>
                         <div class="accordion-content" id="accordion-content-3">
                             <div class="accordion-content-inner">
-                                <p>Très simples : mettre à disposition votre espace le jour J et accueillir les spectateurs. Hormur s'occupe de tout le reste : artistes, billetterie, assurance, promotion, gestion administrative.</p>
+                                <p><strong>QUASI RIEN !</strong> Vous ouvrez votre espace et accueillez les gens (comme d'habitude). Hormur gère : artistes, billetterie, assurance, promotion, technique. Vous êtes juste là pour encaisser les résultats !</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="accordion-item">
                         <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
-                            aria-controls="accordion-content-4">L'inscription est-elle vraiment gratuite ?</div>
+                            aria-controls="accordion-content-4">C'est vraiment ZÉRO frais cachés ?</div>
                         <div class="accordion-content" id="accordion-content-4">
                             <div class="accordion-content-inner">
-                                <p>Oui, 100% gratuit ! Aucun frais d'inscription, d'abonnement ou de mise en place. Vous ne payez que si vous organisez des événements (commission sur les ventes).</p>
+                                <p><strong>100% TRANSPARENT :</strong> L'audit est gratuit. L'inscription est gratuite. Vous ne payez QUE si vous organisez des événements (commission sur les ventes). Aucun abonnement, aucun frais de dossier, RIEN d'autre.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="accordion-item">
                         <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
-                            aria-controls="accordion-content-5">Puis-je refuser un événement proposé ?</div>
+                            aria-controls="accordion-content-5">Et si je veux arrêter ? Je peux dire NON ?</div>
                         <div class="accordion-content" id="accordion-content-5">
                             <div class="accordion-content-inner">
-                                <p>Absolument ! Vous restez maître de votre lieu. Chaque événement vous est proposé et vous décidez librement d'accepter ou refuser selon vos critères (date, type d'événement, artiste...).</p>
+                                <p><strong>LIBERTÉ TOTALE !</strong> Vous validez OU refusez chaque événement proposé. Vous pouvez faire pause, reprendre, arrêter quand vous voulez. AUCUN engagement, AUCUNE obligation. C'est VOTRE lieu, VOUS décidez.</p>
                             </div>
                         </div>
                     </div>
@@ -1291,42 +1469,42 @@
         <!-- CTA Section -->
         <section id="join" class="cta">
             <div class="container">
-                <h2>Prêt à transformer votre lieu en expérience culturelle ?</h2>
-                <p>Rejoignez les centaines de professionnels qui génèrent des revenus additionnels et fidélisent leurs clients grâce à la culture.</p>
+                <h2>Votre lieu peut devenir une destination culturelle incontournable</h2>
+                <p>Rejoignez les 600+ professionnels qui créent des <strong>expériences magiques</strong>, fidélisent massivement et aident 4000+ artistes à rayonner.</p>
                 <div class="guarantee">
-                    <span>Inscription 100% gratuite - Aucun engagement</span>
+                    <span>Session d'activation culturelle gratuite - Potentiel analysé sous 24h</span>
                 </div>
 
                 <div class="cta-form">
                     <div id="form-success" style="display: none; background-color: white; padding: 30px; border-radius: 8px; text-align: center; max-width: 600px; margin: 0 auto;">
                         <div style="font-size: 70px; color: #EE6553; margin-bottom: 20px;">✓</div>
                         <h3 style="color: #323242; font-size: 24px; margin-bottom: 30px;">
-                            Félicitations ! Votre inscription a été enregistrée
+                            BRAVO ! Votre transformation culturelle commence maintenant
                         </h3>
                         <p style="font-size: 16px; line-height: 1.6; color: #323242; margin-bottom: 20px; text-align: left;">
-                            Nous allons étudier le potentiel de votre lieu et vous recontacter dans les 48h avec des propositions d'événements personnalisées.
+                            Notre équipe analyse MAINTENANT le potentiel culturel de votre lieu et vous recontacte sous 24h avec votre plan d'action personnalisé.
                         </p>
                         <div style="background-color: #FCE5DD; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: left;">
-                            <h4 style="color: #EE6553; margin-bottom: 15px; font-size: 18px;">Prochaines étapes :</h4>
+                            <h4 style="color: #EE6553; margin-bottom: 15px; font-size: 18px;">VOS BÉNÉFICES IMMÉDIATS :</h4>
                             <p style="margin-bottom: 15px; display: flex; align-items: flex-start;">
-                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">1.</span>
-                                <span style="color: #323242;">Vérifiez vos <strong>emails</strong> pour confirmer votre inscription</span>
+                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">></span>
+                                <span style="color: #323242;"><strong>ACCÈS PRIVILÉGIÉ</strong> à notre communauté de 4000+ artistes</span>
                             </p>
                             <p style="margin-bottom: 15px; display: flex; align-items: flex-start;">
-                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">2.</span>
-                                <span style="color: #323242;">Notre équipe <strong>analyse votre lieu</strong> et identifie les événements les plus adaptés</span>
+                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">></span>
+                                <span style="color: #323242;"><strong>MATCHING PERSONNALISÉ</strong> : artistes parfaits pour VOTRE clientèle</span>
                             </p>
                             <p style="margin-bottom: 15px; display: flex; align-items: flex-start;">
-                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">3.</span>
-                                <span style="color: #323242;">Nous vous <strong>contactons sous 48h</strong> avec vos premières propositions</span>
+                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">></span>
+                                <span style="color: #323242;"><strong>ACCOMPAGNEMENT COMPLET</strong> : outils communication + coaching</span>
                             </p>
                             <p style="display: flex; align-items: flex-start;">
-                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">4.</span>
-                                <span style="color: #323242;">Vous <strong>choisissez</strong> les événements qui vous intéressent</span>
+                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">></span>
+                                <span style="color: #323242;"><strong>1er ÉVÉNEMENT POSSIBLE</strong> dès cette semaine !</span>
                             </p>
                         </div>
-                        <p style="font-size: 16px; color: #323242; margin-top: 20px;">
-                            Votre premier événement pourrait avoir lieu dès la semaine prochaine !
+                        <p style="font-size: 16px; color: #323242; margin-top: 20px; font-weight: 600;">
+                            Vos clients vont ADORER cette nouvelle dimension de votre lieu !
                         </p>
                     </div>
 
@@ -1378,7 +1556,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-large btn-full" id="submit-button">
-                            Découvrir le potentiel de mon lieu !
+                            DÉCOUVRIR MON POTENTIEL CULTUREL MAINTENANT
                         </button>
                     </form>
                 </div>
@@ -1388,7 +1566,7 @@
         <!-- Sticky CTA -->
         <div class="sticky-cta">
             <div class="container sticky-cta-content">
-                <a href="#join" class="btn btn-primary btn-large">Rejoindre Hormur Pro</a>
+                <a href="#join" class="btn btn-primary btn-large">Mon potentiel culturel gratuit</a>
             </div>
         </div>
     </main>
