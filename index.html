@@ -1,506 +1,1663 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Transformez votre commerce ou entreprise en lieu culturel unique avec Hormur. Fidélisez vos clients et créez une expérience mémorable.">
-    <title>Hormur Pro - Transformez votre lieu en scène culturelle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description"
+        content="Transformez votre commerce ou entreprise en lieu culturel unique. Fidélisez vos clients, différenciez-vous de la concurrence et générez des revenus additionnels avec Hormur Pro.">
+    <meta name="theme-color" content="#EE6553">
+    <title>Hormur Pro | Transformez votre lieu en expérience culturelle</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Buenard:wght@700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
-            --primary-color: #ee6553;
+            --primary-color: #EE6553;
             --secondary-color: #323242;
-            --light-bg: #f9f7f6;
-            --white: #ffffff;
-            --text-gray: #6b6b6b;
+            --light-bg: #F9F7F6;
+            --white: #FFFFFF;
+            --text-gray: #6B6B6B;
+            --success-green: #10B981;
+            --warning-orange: #F59E0B;
+            --error-red: #EF4444;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-xxl: 64px;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
-        
+
         body {
             font-family: 'Noto Sans', sans-serif;
-            color: var(--secondary-color);
             line-height: 1.6;
+            color: var(--secondary-color);
+            overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--spacing-md);
         }
-        
+
+        /* Header Styles */
         header {
             background: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: var(--box-shadow);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
         }
-        
-        nav {
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: var(--spacing-sm) 0;
         }
-        
+
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
+            text-decoration: none;
         }
-        
-        .nav-links {
+
+        .logo-image {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-desktop {
             display: flex;
-            gap: 30px;
             align-items: center;
+            gap: var(--spacing-lg);
         }
-        
-        .nav-links a {
+
+        .nav-desktop a {
             text-decoration: none;
             color: var(--secondary-color);
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: var(--transition);
         }
-        
-        .nav-links a:hover {
+
+        .nav-desktop a:hover {
             color: var(--primary-color);
         }
-        
-        .cta-button {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 25px;
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
             border-radius: 50px;
             text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
-        
-        .cta-button:hover {
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
             background: var(--secondary-color);
             transform: translateY(-2px);
         }
-        
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 18px;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--secondary-color);
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            padding: var(--spacing-lg);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .mobile-menu nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 18px;
+            font-weight: 500;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--light-bg) 0%, #fff 100%);
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
             padding: 120px 0 80px;
             margin-top: 70px;
         }
-        
+
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: var(--spacing-xxl);
             align-items: center;
         }
-        
+
         .hero-text h1 {
-            font-size: 48px;
+            font-size: 3rem;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: var(--spacing-md);
             color: var(--secondary-color);
         }
-        
-        .hero-text .highlight {
-            color: var(--primary-color);
+
+        .hero-text .highlight-box {
+            background: linear-gradient(135deg, var(--primary-color), #ff8a7a);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
         }
-        
-        .hero-text p {
-            font-size: 18px;
+
+        .hero-tagline {
+            font-size: 1.2rem;
             color: var(--text-gray);
-            margin-bottom: 30px;
+            margin-bottom: var(--spacing-lg);
         }
-        
-        .hero-stats {
+
+        .value-proposition {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            display: inline-block;
+        }
+
+        .check-list {
+            list-style: none;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary-color);
+        }
+
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .hero-buttons {
             display: flex;
-            gap: 40px;
-            margin: 40px 0;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .stat-label {
-            color: var(--text-gray);
-            font-size: 14px;
-        }
-        
+
         .hero-image {
             position: relative;
             text-align: center;
         }
-        
-        .hero-visual {
+
+        .hero-image img {
             width: 100%;
             max-width: 500px;
-            height: 400px;
-            background: linear-gradient(135deg, #ee6553 0%, #ff8a7a 100%);
+            height: auto;
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            font-weight: 700;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-        
-        .benefits {
-            padding: 80px 0;
+
+        .commission-badge {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background: var(--success-green);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Benefits Bar - Mobile only */
+        .benefits-bar {
+            display: none;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-md) 0;
+        }
+
+        .benefits-list {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+
+        .benefits-list li {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: var(--spacing-xxl) 0;
             background: var(--white);
         }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
+
+        .comparison h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-xxl);
+            color: var(--secondary-color);
         }
-        
-        .section-header h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-        
-        .section-header p {
-            color: var(--text-gray);
-            font-size: 18px;
-        }
-        
-        .benefits-grid {
+
+        .comparison-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
         }
-        
-        .benefit-card {
+
+        .comparison-card {
             background: var(--light-bg);
-            padding: 40px 30px;
-            border-radius: 15px;
+            padding: var(--spacing-xl);
+            border-radius: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .comparison-card.highlighted {
+            background: linear-gradient(135deg, var(--primary-color), #ff8a7a);
+            color: var(--white);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 700;
+        }
+
+        .point-positive {
+            position: relative;
+            padding-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+
+        .point-positive::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .comparison-card.highlighted .point-positive::before {
+            color: var(--white);
+        }
+
+        /* Process Section */
+        .process {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+
+        .process h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-xxl);
+            color: var(--secondary-color);
+        }
+
+        .text-center {
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
         }
-        
-        .benefit-icon {
+
+        .step {
+            display: flex;
+            gap: var(--spacing-lg);
+            align-items: flex-start;
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: var(--white);
             width: 60px;
             height: 60px;
-            margin: 0 auto 20px;
-            background: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
         }
-        
-        .benefit-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .benefit-card p {
-            color: var(--text-gray);
-            font-size: 15px;
-        }
-        
-        .testimonials {
-            padding: 80px 0;
-            background: var(--light-bg);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-        }
-        
-        .testimonial {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 15px;
-            position: relative;
-        }
-        
-        .testimonial::before {
-            content: '"';
-            font-size: 80px;
-            color: var(--primary-color);
-            position: absolute;
-            top: -20px;
-            left: 30px;
-            opacity: 0.3;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
             color: var(--secondary-color);
         }
-        
+
+        .step-content p {
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .step-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-content li {
+            position: relative;
+            padding-left: var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
+            color: var(--secondary-color);
+        }
+
+        .step-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Examples Section */
+        .examples {
+            padding: var(--spacing-xxl) 0;
+            background: var(--white);
+        }
+
+        .examples h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-xxl);
+            color: var(--secondary-color);
+        }
+
+        .examples-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .example-card {
+            background: var(--light-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .example-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .example-card::before {
+            content: '💡';
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: var(--spacing-xxl) 0;
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .stats-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-xl);
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        .stat-card p {
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: var(--spacing-xxl) 0;
+            background: var(--light-bg);
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-xxl);
+            color: var(--secondary-color);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .testimonial-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            background: var(--white);
+            padding: var(--spacing-xl);
+            box-sizing: border-box;
+        }
+
+        .testimonial-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-lg);
+            font-style: italic;
+        }
+
+        .testimonial-result {
+            background: var(--success-green);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: var(--spacing-lg);
+        }
+
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+            gap: var(--spacing-md);
         }
-        
-        .author-avatar {
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-info h4 {
+            color: var(--secondary-color);
+            margin-bottom: 4px;
+        }
+
+        .testimonial-role {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .slider-control {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        
-        .cta-section {
-            padding: 100px 0;
+
+        .slider-control:hover {
             background: var(--secondary-color);
-            text-align: center;
+            transform: scale(1.1);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: var(--spacing-xxl) 0;
+            background: var(--white);
+        }
+
+        .faq h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-xxl);
+            color: var(--secondary-color);
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .accordion-item.active {
+            background: var(--light-bg);
+        }
+
+        .accordion-header {
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .accordion-header:hover {
+            color: var(--primary-color);
+        }
+
+        .accordion-header::after {
+            content: '+';
+            position: absolute;
+            right: var(--spacing-lg);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+        }
+
+        .accordion-content-inner {
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: var(--spacing-xxl) 0;
+            background: var(--secondary-color);
             color: var(--white);
+            text-align: center;
         }
-        
-        .cta-section h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
         }
-        
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 40px;
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xl);
             opacity: 0.9;
         }
-        
-        .cta-buttons {
+
+        .guarantee {
+            background: var(--success-green);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        /* Form Styles */
+        .cta-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-field {
+            margin-bottom: var(--spacing-md);
+            text-align: left;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .form-field input,
+        .form-field select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: var(--transition);
+            background: var(--white);
+            color: var(--secondary-color);
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(238, 101, 83, 0.1);
+        }
+
+        .form-field.error input,
+        .form-field.error select {
+            border-color: var(--error-red);
+        }
+
+        .form-feedback {
+            color: var(--error-red);
+            font-size: 0.9rem;
+            margin-top: var(--spacing-xs);
+            display: none;
+        }
+
+        .form-field.error .form-feedback {
+            display: block;
+        }
+
+        .form-checkbox {
             display: flex;
-            gap: 20px;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) 0;
+            text-align: left;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-top: 2px;
+        }
+
+        .form-checkbox label {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .form-checkbox a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .form-checkbox a:hover {
+            color: #ff8a7a;
+        }
+
+        .form.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-top: 1px solid #eee;
+            padding: var(--spacing-md) 0;
+            transform: translateY(100%);
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta-content {
+            display: flex;
             justify-content: center;
         }
-        
-        .cta-button-white {
-            background: var(--white);
-            color: var(--primary-color);
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
         }
-        
-        .cta-button-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+
+        /* Animations */
+        .animate-left,
+        .animate-right,
+        .animate-fade {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
         }
-        
+
+        .animate-left {
+            transform: translateX(-30px);
+        }
+
+        .animate-right {
+            transform: translateX(30px);
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-desktop {
                 display: none;
             }
-            
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
                 text-align: center;
             }
-            
+
             .hero-text h1 {
-                font-size: 32px;
+                font-size: 2rem;
             }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
+
+            .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                gap: var(--spacing-lg);
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .examples-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-lg);
+            }
+
+            .benefits-bar {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .process,
+            .comparison,
+            .examples,
+            .stats,
+            .testimonials,
+            .faq,
+            .cta {
+                padding: var(--spacing-xl) 0;
+            }
+
+            .counter {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 2rem !important;
+            }
+
+            .cta-form {
+                padding: 0 var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <nav class="container">
-            <div class="logo">HORMUR PRO</div>
-            <div class="nav-links">
-                <a href="#benefits">Avantages</a>
+        <div class="container header-content">
+            <a href="#" class="logo" aria-label="Accueil Hormur">
+                <img src="https://cdn.usestencil.com/uploads/15a569bc-3bde-45e7-bad1-cc691194f1f5/2027f087-1a72-4ad1-97f2-af1bdad55850/Logo novembre 20_Plan de travail 1 copie 3 (1)--2017616677.png"
+                    alt="Logo Hormur" class="logo-image">
+            </a>
+            <nav class="nav-desktop" aria-label="Navigation principale">
+                <a href="#process">Comment ça marche</a>
+                <a href="#inclusions">Vos avantages</a>
                 <a href="#testimonials">Témoignages</a>
-                <a href="#cta" class="cta-button">Commencer gratuitement</a>
+                <a href="#faq">FAQ</a>
+                <a href="#join" class="btn btn-secondary">Rejoindre Hormur</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Ouvrir le menu">☰</button>
+            <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+                <nav aria-label="Navigation mobile">
+                    <a href="#process">Comment ça marche</a>
+                    <a href="#inclusions">Avantages</a>
+                    <a href="#testimonials">Témoignages</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#join">Rejoindre Hormur</a>
+                </nav>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Transformez votre lieu en <span class="highlight">expérience culturelle unique</span></h1>
-                    <p>Fidélisez vos clients, employés et partenaires en accueillant des événements artistiques exclusifs. Créez une valeur ajoutée incomparable pour votre commerce, entreprise ou institution.</p>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container first-view-wrapper">
+                <div class="first-view-content hero-content">
+                    <div class="hero-text animate-left">
+                        <div class="value-proposition">Votre lieu a un potentiel culturel inexploité</div>
+                        <h1>Transformez votre <span class="highlight-box">commerce ou entreprise</span> en expérience culturelle unique !</h1>
+                        <p class="hero-tagline">Fidélisez vos clients, différenciez-vous de la concurrence et générez des <strong>revenus additionnels</strong> en accueillant des événements artistiques dans votre établissement.</p>
+
+                        <ul class="check-list">
+                            <li><strong>Fidélisation client :</strong> Offrez des expériences mémorables qui marquent les esprits</li>
+                            <li><strong>Différenciation :</strong> Positionnez-vous comme un lieu de vie culturelle innovant</li>
+                            <li><strong>Revenus additionnels :</strong> Percevez jusqu'à 30% des ventes de billets !</li>
+                        </ul>
+
+                        <div class="hero-buttons">
+                            <a href="#join" class="btn btn-primary btn-large">Découvrir le potentiel de mon lieu</a>
+                            <a href="#process" class="btn btn-secondary btn-large">En savoir plus</a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image animate-right">
+                        <div class="commission-badge">Jusqu'à 30% de revenus !</div>
+                        <img src="https://cdn.usestencil.com/uploads/15a569bc-3bde-45e7-bad1-cc691194f1f5/2027f087-1a72-4ad1-97f2-af1bdad55850/Concert jardin image-928569734.png"
+                            alt="Performance artistique dans un commerce" loading="eager" width="600" height="400">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Bar - Only visible on mobile -->
+        <section class="benefits-bar">
+            <div class="container">
+                <ul class="benefits-list">
+                    <li>Fidélisation</li>
+                    <li>Différenciation</li>
+                    <li>Revenus bonus</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison" id="inclusions">
+            <div class="container">
+                <h2 class="text-center">Pourquoi les professionnels choisissent Hormur</h2>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card highlighted">
+                        <h3>Un avantage concurrentiel décisif</h3>
+                        <div class="point-positive">Créez une expérience client unique que vos concurrents ne peuvent pas copier</div>
+                        <div class="point-positive">Transformez votre lieu en destination culturelle incontournable</div>
+                        <div class="point-positive">Générez du bouche-à-oreille positif et des avis exceptionnels</div>
+                    </div>
+                    <div class="comparison-card">
+                        <h3>Des résultats mesurables rapidement</h3>
+                        <div class="point-positive">Augmentation immédiate de la fréquentation lors des événements</div>
+                        <div class="point-positive">Fidélisation accrue : 85% des clients reviennent après un événement</div>
+                        <div class="point-positive">ROI positif dès le premier événement grâce au partage de billetterie</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process">
+            <div class="container">
+                <h2 class="text-center">Comment ça fonctionne concrètement ?</h2>
+
+                <div class="steps">
+                    <div class="step animate-fade">
+                        <div class="step-number" aria-hidden="true">1</div>
+                        <div class="step-content">
+                            <h3>Inscrivez-vous gratuitement</h3>
+                            <p>Créez votre profil d'hôte en quelques minutes :</p>
+                            <ul>
+                                <li>Décrivez votre <strong>lieu et son potentiel</strong> (librairie, restaurant, boutique, bureau...)</li>
+                                <li>Précisez vos <strong>disponibilités</strong> et le type d'événements souhaités</li>
+                                <li>Hormur <strong>valide votre espace</strong> et vous accompagne dans la mise en place</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step animate-fade delay-1">
+                        <div class="step-number" aria-hidden="true">2</div>
+                        <div class="step-content">
+                            <h3>Hormur vous propose des événements</h3>
+                            <p>Nous faisons le lien avec des artistes professionnels :</p>
+                            <ul>
+                                <li><strong>Événements adaptés</strong> à votre lieu et votre clientèle</li>
+                                <li><strong>Gestion complète</strong> : billetterie, assurance, promotion</li>
+                                <li>Vous <strong>validez ou refusez</strong> chaque proposition en toute liberté</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step animate-fade delay-2">
+                        <div class="step-number" aria-hidden="true">3</div>
+                        <div class="step-content">
+                            <h3>Profitez des résultats</h3>
+                            <p>Récoltez les bénéfices immédiatement :</p>
+                            <ul>
+                                <li><strong>Clients fidélisés</strong> par cette expérience unique</li>
+                                <li><strong>Visibilité accrue</strong> grâce à la communication de l'événement</li>
+                                <li><strong>Revenus additionnels</strong> via le partage de billetterie (jusqu'à 30%)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="#join" class="btn btn-primary btn-large">Je veux découvrir mon potentiel !</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section class="examples">
+            <div class="container">
+                <h2 class="text-center">Exemples concrets selon votre secteur</h2>
+                
+                <div class="examples-container">
+                    <div class="example-card">
+                        <p><strong>Librairie :</strong> Lecture-spectacle dans vos rayons. 40 places vendues à 15€ = 180€ de revenus pour vous, plus les ventes de livres stimulées !</p>
+                    </div>
                     
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <div class="stat-number">3900+</div>
-                            <div class="stat-label">Artistes professionnels</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Événements réussis</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">97%</div>
-                            <div class="stat-label">Satisfaction</div>
-                        </div>
+                    <div class="example-card">
+                        <p><strong>Restaurant/Bar :</strong> Concert intimiste après le service. Vos clients restent plus longtemps, consomment davantage + votre part de billetterie.</p>
                     </div>
                     
-                    <a href="#cta" class="cta-button">Découvrir le potentiel de mon lieu</a>
-                </div>
-                <div class="hero-image">
-                    <div class="hero-visual">Commerce & Art</div>
+                    <div class="example-card">
+                        <p><strong>Boutique :</strong> Vernissage d'exposition temporaire. Attirez une nouvelle clientèle et boostez vos ventes pendant l'événement.</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <p><strong>Entreprise :</strong> After-work culturel pour vos équipes ou clients. Renforcez votre image employeur et vos relations business.</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <p><strong>Espace de coworking :</strong> Performance théâtrale en soirée. Monétisez votre espace en dehors des heures de bureau.</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <p><strong>Salon de coiffure :</strong> Soirée musicale privée. Créez un événement VIP pour vos meilleurs clients et prospects.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <div class="section-header">
-                <h2>Pourquoi accueillir des événements artistiques ?</h2>
-                <p>Créez une valeur ajoutée unique pour votre activité</p>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">👥</div>
-                    <h3>Fidélisation client</h3>
-                    <p>Offrez une expérience exclusive qui marque les esprits et crée un lien émotionnel fort avec votre marque</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3>Augmentation du trafic</h3>
-                    <p>Attirez une nouvelle clientèle curieuse et augmentez la fréquentation de votre établissement</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Image de marque</h3>
-                    <p>Positionnez-vous comme un acteur culturel engagé et différenciez-vous de la concurrence</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Revenus additionnels</h3>
-                    <p>Générez des revenus complémentaires grâce au partage de la billetterie (jusqu'à 30%)</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">📱</div>
-                    <h3>Communication clé en main</h3>
-                    <p>Bénéficiez de notre réseau et nos outils de communication pour promouvoir vos événements</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🛡️</div>
-                    <h3>Sécurité garantie</h3>
-                    <p>Assurance incluse, gestion administrative simplifiée et accompagnement personnalisé</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container stats-container">
+                <h2 class="text-center">Les résultats de nos hôtes professionnels</h2>
 
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ils ont transformé leur lieu avec Hormur</h2>
-                <p>Découvrez les retours d'expérience de nos hôtes professionnels</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text">"En 6 mois, nous avons organisé 8 événements qui ont complètement changé l'image de notre boutique. Nos clients nous voient maintenant comme un lieu de vie, pas juste un commerce."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">CL</div>
-                        <div>
-                            <strong>Claire Laurent</strong><br>
-                            <small>Boutique de décoration, Bordeaux</small>
-                        </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="counter" data-target="600" aria-live="polite">0</div>
+                        <p>Lieux professionnels partenaires</p>
                     </div>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">"Les after-work artistiques sont devenus notre signature. Chaque jeudi, c'est complet ! Notre CA a augmenté de 30% sur ces soirées."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">PD</div>
-                        <div>
-                            <strong>Pierre Dubois</strong><br>
-                            <small>Bar à vin, Lyon</small>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">"Hormur nous a permis d'offrir des expériences uniques à nos collaborateurs. L'impact sur la cohésion d'équipe est remarquable."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SB</div>
-                        <div>
-                            <strong>Sarah Benoit</strong><br>
-                            <small>Startup Tech, Paris</small>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">"Nous utilisons Hormur pour nos événements clients premium. C'est devenu notre avantage concurrentiel principal."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">ML</div>
-                        <div>
-                            <strong>Marc Leroy</strong><br>
-                            <small>Agence immobilière, Nantes</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="cta" class="cta-section">
-        <div class="container">
-            <h2>Prêt à transformer votre lieu ?</h2>
-            <p>Rejoignez les centaines de professionnels qui ont fait le choix de la culture</p>
-            
-            <div class="cta-buttons">
-                <a href="https://hormur.com/signup-host" class="cta-button-white">Commencer gratuitement</a>
-                <a href="https://hormur.com/contact" class="cta-button-white" style="background: transparent; border: 2px solid white; color: white;">Demander une démo</a>
+                    <div class="stat-card">
+                        <div class="counter" data-target="2400" aria-live="polite">0</div>
+                        <p>Événements organisés avec succès</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="counter" data-target="85" aria-live="polite">0</div>
+                        <p>% de clients qui reviennent après un événement</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="counter" data-target="300" aria-live="polite">0</div>
+                        <p>€ de revenus moyens par événement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="text-center">Témoignages de nos hôtes professionnels</h2>
+
+                <div class="testimonial-slider" aria-live="polite">
+                    <div class="testimonial-wrapper">
+                        <div class="testimonial" aria-label="Témoignage 1">
+                            <div class="testimonial-inner">
+                                <p class="testimonial-text">"En 6 mois, nous avons organisé 12 événements dans notre librairie. L'impact sur notre chiffre d'affaires et notre notoriété a été immédiat. Nos clients nous voient maintenant comme LE lieu culturel du quartier, pas juste une librairie."</p>
+                                <p class="testimonial-result">+40% de fréquentation et 2800€ de revenus additionnels</p>
+                                <div class="testimonial-author">
+                                    <img src="https://placehold.co/60x60/7E7EA5/white?text=CL" alt="Photo de Claire"
+                                        class="testimonial-avatar" width="60" height="60" loading="lazy">
+                                    <div class="testimonial-info">
+                                        <h4>Claire Lefebvre</h4>
+                                        <p class="testimonial-role">Propriétaire librairie "Les Pages Tournées", Lyon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial" aria-label="Témoignage 2">
+                            <div class="testimonial-inner">
+                                <p class="testimonial-text">"Nos after-works culturels sont devenus LA signature de notre bar à vin. Chaque jeudi, c'est complet ! Les clients viennent pour l'artiste mais découvrent nos vins. Notre CA a explosé sur ces soirées et la fidélisation est incroyable."</p>
+                                <p class="testimonial-result">Événements complets + 60% de CA sur les soirées culturelles</p>
+                                <div class="testimonial-author">
+                                    <img src="https://placehold.co/60x60/7E7EA5/white?text=PD" alt="Photo de Pierre"
+                                        class="testimonial-avatar" width="60" height="60" loading="lazy">
+                                    <div class="testimonial-info">
+                                        <h4>Pierre Dubois</h4>
+                                        <p class="testimonial-role">Gérant "Le Comptoir des Arts", Bordeaux</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial" aria-label="Témoignage 3">
+                            <div class="testimonial-inner">
+                                <p class="testimonial-text">"Hormur nous a permis de transformer notre espace de coworking en véritable lieu de vie culturelle. Les événements en soirée rentabilisent nos heures creuses et attirent de nouveaux coworkers curieux de cette ambiance unique."</p>
+                                <p class="testimonial-result">Espaces loués à 95% + 15 nouveaux coworkers/mois</p>
+                                <div class="testimonial-author">
+                                    <img src="https://placehold.co/60x60/7E7EA5/white?text=SM" alt="Photo de Sophie"
+                                        class="testimonial-avatar" width="60" height="60" loading="lazy">
+                                    <div class="testimonial-info">
+                                        <h4>Sophie Martin</h4>
+                                        <p class="testimonial-role">Fondatrice "CoWork & Culture", Nantes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-control" id="prev-testimonial"
+                            aria-label="Témoignage précédent">←</button>
+                        <button class="slider-control" id="next-testimonial" aria-label="Témoignage suivant">→</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="text-center">Questions fréquentes</h2>
+
+                <div class="accordion" role="region" aria-label="Foire aux questions">
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-1">Mon lieu est-il adapté aux événements culturels ?</div>
+                        <div class="accordion-content" id="accordion-content-1">
+                            <div class="accordion-content-inner">
+                                <p>La plupart des lieux peuvent accueillir des événements ! Restaurants, bars, librairies, boutiques, entreprises, espaces de coworking... Nos équipes vous aident à identifier le potentiel de votre espace et adapter les événements à vos contraintes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-2">Combien puis-je gagner avec mes événements ?</div>
+                        <div class="accordion-content" id="accordion-content-2">
+                            <div class="accordion-content-inner">
+                                <p>Vous percevez jusqu'à 30% du chiffre d'affaires billetterie. Pour un événement à 20€ x 30 places = 180€ de revenus directs, sans compter l'augmentation de votre activité principale (boissons, produits, services...).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-3">Quelles sont mes obligations en tant qu'hôte ?</div>
+                        <div class="accordion-content" id="accordion-content-3">
+                            <div class="accordion-content-inner">
+                                <p>Très simples : mettre à disposition votre espace le jour J et accueillir les spectateurs. Hormur s'occupe de tout le reste : artistes, billetterie, assurance, promotion, gestion administrative.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-4">L'inscription est-elle vraiment gratuite ?</div>
+                        <div class="accordion-content" id="accordion-content-4">
+                            <div class="accordion-content-inner">
+                                <p>Oui, 100% gratuit ! Aucun frais d'inscription, d'abonnement ou de mise en place. Vous ne payez que si vous organisez des événements (commission sur les ventes).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-5">Puis-je refuser un événement proposé ?</div>
+                        <div class="accordion-content" id="accordion-content-5">
+                            <div class="accordion-content-inner">
+                                <p>Absolument ! Vous restez maître de votre lieu. Chaque événement vous est proposé et vous décidez librement d'accepter ou refuser selon vos critères (date, type d'événement, artiste...).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="join" class="cta">
+            <div class="container">
+                <h2>Prêt à transformer votre lieu en expérience culturelle ?</h2>
+                <p>Rejoignez les centaines de professionnels qui génèrent des revenus additionnels et fidélisent leurs clients grâce à la culture.</p>
+                <div class="guarantee">
+                    <span>Inscription 100% gratuite - Aucun engagement</span>
+                </div>
+
+                <div class="cta-form">
+                    <div id="form-success" style="display: none; background-color: white; padding: 30px; border-radius: 8px; text-align: center; max-width: 600px; margin: 0 auto;">
+                        <div style="font-size: 70px; color: #EE6553; margin-bottom: 20px;">✓</div>
+                        <h3 style="color: #323242; font-size: 24px; margin-bottom: 30px;">
+                            Félicitations ! Votre inscription a été enregistrée
+                        </h3>
+                        <p style="font-size: 16px; line-height: 1.6; color: #323242; margin-bottom: 20px; text-align: left;">
+                            Nous allons étudier le potentiel de votre lieu et vous recontacter dans les 48h avec des propositions d'événements personnalisées.
+                        </p>
+                        <div style="background-color: #FCE5DD; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: left;">
+                            <h4 style="color: #EE6553; margin-bottom: 15px; font-size: 18px;">Prochaines étapes :</h4>
+                            <p style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">1.</span>
+                                <span style="color: #323242;">Vérifiez vos <strong>emails</strong> pour confirmer votre inscription</span>
+                            </p>
+                            <p style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">2.</span>
+                                <span style="color: #323242;">Notre équipe <strong>analyse votre lieu</strong> et identifie les événements les plus adaptés</span>
+                            </p>
+                            <p style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">3.</span>
+                                <span style="color: #323242;">Nous vous <strong>contactons sous 48h</strong> avec vos premières propositions</span>
+                            </p>
+                            <p style="display: flex; align-items: flex-start;">
+                                <span style="color: #EE6553; font-weight: bold; margin-right: 10px;">4.</span>
+                                <span style="color: #323242;">Vous <strong>choisissez</strong> les événements qui vous intéressent</span>
+                            </p>
+                        </div>
+                        <p style="font-size: 16px; color: #323242; margin-top: 20px;">
+                            Votre premier événement pourrait avoir lieu dès la semaine prochaine !
+                        </p>
+                    </div>
+
+                    <form id="host-signup-form" name="host-signup-form" method="POST">
+                        <div class="form-field">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Ex : Roselyne..." aria-required="true">
+                            <div class="form-feedback">Veuillez entrer votre prénom</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="lastName">Nom *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Ex : Bachelot..." aria-required="true">
+                            <div class="form-feedback">Veuillez entrer votre nom</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email">Adresse email *</label>
+                            <input type="email" id="email" name="email" required placeholder="adresse@email.com..." aria-required="true">
+                            <div class="form-feedback">Veuillez entrer une adresse email valide</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="password">Mot de passe *</label>
+                            <input type="password" id="password" name="password" required placeholder="..." aria-required="true">
+                            <div class="form-feedback">Veuillez entrer un mot de passe (minimum 6 caractères)</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="confirmPassword">Confirmer le mot de passe *</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="..." aria-required="true">
+                            <div class="form-feedback">Les mots de passe ne correspondent pas</div>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="emailConsent" name="emailConsent">
+                            <label for="emailConsent">J'accepte de recevoir des informations par mail
+                                <br><small style="opacity: 0.8;">Vous recevrez des informations personnalisées (annonces d'événements, aide pour les artistes, accompagnement des hôtes...).</small>
+                            </label>
+                        </div>
+
+                        <div style="font-size: 0.9rem; color: white; opacity: 0.9; line-height: 1.4; margin: 20px 0; text-align: left;">
+                            Hormur traite vos données à caractère personnel afin d'assurer la bonne gestion de votre compte sur le site HORMUR. Pour en savoir plus sur la gestion de vos données personnelles et pour exercer vos droits, reportez-vous à notre 
+                            <a href="https://hormur.com/privacy" target="_blank" style="color: #ff8a7a; text-decoration: underline;">politique de confidentialité</a>.
+                            <br><br>
+                            En continuant, vous reconnaissez avoir lu et accepté les 
+                            <a href="https://hormur.com/conditions" target="_blank" style="color: #ff8a7a; text-decoration: underline;">conditions générales d'utilisation d'Hormur</a> 
+                            et de <a href="https://stripe.com/fr-us/legal/end-users" target="_blank" style="color: #ff8a7a; text-decoration: underline;">Stripe</a>.
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-full" id="submit-button">
+                            Découvrir le potentiel de mon lieu !
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sticky CTA -->
+        <div class="sticky-cta">
+            <div class="container sticky-cta-content">
+                <a href="#join" class="btn btn-primary btn-large">Rejoindre Hormur Pro</a>
             </div>
         </div>
-    </section>
+    </main>
+
+    <footer>
+        <div class="container text-center" style="padding: var(--spacing-md) 0;">
+            <p style="font-size: 0.9rem;">© 2025 Hormur. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            mobileMenuBtn.addEventListener('click', function () {
+                const isExpanded = mobileMenu.classList.contains('active');
+                mobileMenu.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+                mobileMenuBtn.textContent = isExpanded ? '☰' : '✕';
+                mobileMenuBtn.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu' : 'Fermer le menu');
+                mobileMenu.setAttribute('aria-hidden', isExpanded ? 'true' : 'false');
+            });
+
+            // Mobile Menu Links
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu nav a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                    mobileMenuBtn.textContent = '☰';
+                    mobileMenuBtn.setAttribute('aria-label', 'Ouvrir le menu');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                });
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = 55;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Testimonial Slider
+            const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            const testimonials = document.querySelectorAll('.testimonial');
+            let currentSlide = 0;
+            const totalSlides = testimonials.length;
+
+            function showSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentSlide = index;
+                testimonialWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.setAttribute('aria-hidden', i !== currentSlide);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+            testimonials.forEach((testimonial, i) => {
+                testimonial.setAttribute('aria-hidden', i !== 0);
+            });
+
+            // Auto-rotate testimonials
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 7000);
+
+            // FAQ Accordion
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                header.addEventListener('click', toggleAccordion);
+                header.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleAccordion.call(this);
+                    }
+                });
+
+                function toggleAccordion() {
+                    accordionItems.forEach(accItem => {
+                        if (accItem !== item) {
+                            const accHeader = accItem.querySelector('.accordion-header');
+                            accHeader.setAttribute('aria-expanded', 'false');
+                            accItem.classList.remove('active');
+                        }
+                    });
+                    const isExpanded = header.getAttribute('aria-expanded') === 'true';
+                    header.setAttribute('aria-expanded', !isExpanded);
+                    item.classList.toggle('active');
+                }
+            });
+
+            // Counter Animation
+            const counters = document.querySelectorAll('.counter');
+            const counterOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            function animateCounter(counter) {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const frameRate = 30;
+                const totalFrames = duration / 1000 * frameRate;
+                let frame = 0;
+
+                const animation = setInterval(() => {
+                    frame++;
+                    const progress = frame / totalFrames;
+                    const easedProgress = 1 - Math.pow(1 - progress, 3);
+                    const currentValue = Math.round(easedProgress * target);
+                    counter.textContent = currentValue.toLocaleString();
+                    if (frame === totalFrames) {
+                        clearInterval(animation);
+                    }
+                }, 1000 / frameRate);
+            }
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        animateCounter(entry.target);
+                    }
+                });
+            }, counterOptions);
+
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+
+            // Sticky CTA
+            const stickyCta = document.querySelector('.sticky-cta');
+            const hero = document.querySelector('.hero');
+            const ctaSection = document.querySelector('.cta');
+
+            function updateStickyCta() {
+                const scrollPosition = window.scrollY;
+                const heroHeight = hero.offsetHeight;
+                const ctaTop = ctaSection.offsetTop;
+
+                if (scrollPosition > heroHeight && scrollPosition < ctaTop - window.innerHeight) {
+                    if (!stickyCta.classList.contains('visible')) {
+                        stickyCta.classList.add('visible');
+                    }
+                } else {
+                    if (stickyCta.classList.contains('visible')) {
+                        stickyCta.classList.remove('visible');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', updateStickyCta, { passive: true });
+
+            // Form Validation and Submission
+            const form = document.getElementById('host-signup-form');
+            
+            function validateEmail(email) {
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            function validatePassword(password) {
+                return password.length >= 6;
+            }
+
+            function validateField(field) {
+                const value = field.value.trim();
+                let isValid = true;
+                const formField = field.closest('.form-field');
+                
+                if (!formField) return true;
+                
+                formField.classList.remove('error');
+
+                if (field.hasAttribute('required') && !value) {
+                    isValid = false;
+                } else if (field.type === 'email' && value && !validateEmail(value)) {
+                    isValid = false;
+                } else if (field.id === 'password' && value && !validatePassword(value)) {
+                    isValid = false;
+                } else if (field.id === 'confirmPassword') {
+                    const password = document.getElementById('password').value;
+                    if (value !== password) {
+                        isValid = false;
+                    }
+                }
+
+                if (!isValid) {
+                    formField.classList.add('error');
+                }
+
+                return isValid;
+            }
+
+            // Live validation
+            const formFields = form.querySelectorAll('input');
+            formFields.forEach(field => {
+                field.addEventListener('blur', () => {
+                    validateField(field);
+                });
+
+                field.addEventListener('input', () => {
+                    const formField = field.closest('.form-field');
+                    if (formField) {
+                        formField.classList.remove('error');
+                    }
+                });
+            });
+
+            // Form submission
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                let isFormValid = true;
+                formFields.forEach(field => {
+                    if (!validateField(field)) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (!isFormValid) {
+                    const firstInvalidField = form.querySelector('.form-field.error input');
+                    if (firstInvalidField) {
+                        firstInvalidField.focus();
+                    }
+                    return false;
+                }
+
+                // Disable button and show loading
+                const submitButton = document.getElementById('submit-button');
+                const originalButtonText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.textContent = 'Inscription en cours...';
+                form.classList.add('loading');
+
+                // Simulate form processing
+                setTimeout(() => {
+                    // Show success message
+                    form.style.display = 'none';
+                    document.getElementById('form-success').style.display = 'block';
+                    document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                    form.classList.remove('loading');
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 </html>
