@@ -56,7 +56,7 @@
             padding: 0 var(--spacing-md);
         }
 
-        /* Header Styles - OPTIMISÉ MOBILE */
+        /* Header Styles */
         header {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -72,12 +72,10 @@
             justify-content: space-between;
             align-items: center;
             padding: var(--spacing-sm) 0;
-            min-height: 60px; /* Hauteur fixe pour éviter les variations */
         }
 
         .logo {
             text-decoration: none;
-            flex-shrink: 0; /* Empêche le logo de rétrécir */
         }
 
         .logo-image {
@@ -154,7 +152,6 @@
             font-size: 20px;
             color: var(--secondary-color);
             cursor: pointer;
-            flex-shrink: 0;
         }
 
         .mobile-menu {
@@ -188,12 +185,12 @@
             border-bottom: 1px solid #eee;
         }
 
-        /* Hero Section - ULTRA-OPTIMISÉ MOBILE */
+        /* Hero Section - OPTIMISÉ ÉQUILIBRÉ */
         .hero {
             background: linear-gradient(135deg, var(--lighter-bg) 0%, var(--white) 100%);
-            padding-top: 60px; /* Exactement la hauteur du header fixe */
-            padding-bottom: 20px;
-            margin-top: 0; /* Supprimé pour coller au header */
+            padding: 80px 0 40px; /* Plus aéré qu'avant */
+            margin-top: 60px;
+            min-height: auto;
         }
 
         .hero-content {
@@ -201,57 +198,50 @@
             grid-template-columns: 1fr 1fr;
             gap: var(--spacing-xl);
             align-items: center;
-            padding-top: var(--spacing-md); /* Espace minimal après le header */
-        }
-
-        /* Value proposition - OPTIMISÉE */
-        .value-proposition {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 6px var(--spacing-sm);
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            margin-bottom: var(--spacing-sm);
-            display: inline-block;
-            font-size: 12px;
-            line-height: 1.2;
         }
 
         .hero-text h1 {
             font-family: 'Buenard', serif;
             font-size: 2.2rem;
             line-height: 1.1;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-md); /* Plus d'espace */
             color: var(--secondary-color);
         }
 
-        /* Highlight box - RÉDUITE */
         .hero-text .highlight-box {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             color: var(--white);
-            padding: 2px 6px; /* Réduit de 3px 6px à 2px 6px */
-            border-radius: 6px; /* Réduit légèrement */
+            padding: 4px 8px; /* Légèrement plus généreux */
+            border-radius: var(--border-radius);
             font-weight: 600;
-            display: inline;
-            font-size: 0.9em; /* Proportion avec le titre */
-            line-height: 1.1;
         }
 
         .hero-tagline {
             font-size: 1rem;
             color: var(--text-gray);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-lg); /* Plus d'espace */
+        }
+
+        .value-proposition {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md); /* Plus d'espace */
+            display: inline-block;
+            font-size: 13px;
         }
 
         .check-list {
             list-style: none;
-            margin: var(--spacing-md) 0;
+            margin: var(--spacing-lg) 0; /* Plus d'espace */
         }
 
         .check-list li {
             position: relative;
             padding-left: var(--spacing-md);
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm); /* Plus d'espace */
             color: var(--secondary-color);
             font-size: 15px;
             line-height: 1.4;
@@ -268,8 +258,8 @@
 
         .hero-buttons {
             display: flex;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-md);
+            gap: var(--spacing-md); /* Plus d'espace */
+            margin-top: var(--spacing-lg); /* Plus d'espace */
         }
 
         .hero-video-section {
@@ -307,7 +297,7 @@
 
         .hero-video-container iframe {
             width: 100%;
-            height: 200px;
+            height: 250px; /* Plus grand */
             border: none;
             display: block;
         }
@@ -379,153 +369,673 @@
             font-size: 0.9rem;
         }
 
-        /* Autres sections... (gardées identiques pour l'exemple) */
-
-        /* RESPONSIVE - MOBILE FIRST ULTRA-OPTIMIZED */
-        @media (max-width: 768px) {
-            .nav-desktop {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            /* Header mobile - OPTIMISÉ */
-            .header-content {
-                padding: 10px 0; /* Réduit encore */
-                min-height: 50px; /* Header plus compact */
-            }
-
-            .logo-image {
-                height: 30px; /* Logo plus petit sur mobile */
-            }
-
-            /* Hero ultra-optimisé mobile - SANS ESPACEMENT SUPERFLU */
-            .hero {
-                padding-top: 50px; /* Correspond à la hauteur du header mobile */
-                padding-bottom: 15px; /* Très réduit */
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-md);
-                text-align: center;
-                padding-top: 10px; /* Espace minimal */
-            }
-
-            /* Value proposition mobile - COMPACTE */
-            .value-proposition {
-                font-size: 11px;
-                margin-bottom: 8px;
-                padding: 4px 8px;
-                display: block; /* Force nouvelle ligne pour éviter débordement */
-                width: fit-content;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-text h1 {
-                font-size: 1.5rem; /* Plus compact */
-                margin-bottom: 8px;
-                line-height: 1.1;
-            }
-
-            /* Highlight box mobile - TRÈS RÉDUITE */
-            .hero-text .highlight-box {
-                padding: 1px 4px; /* Encore plus réduit */
-                font-size: 0.85em; /* Plus petit par rapport au titre */
-                border-radius: 4px;
-                line-height: 1.2;
-                display: inline-block; /* Permet le contrôle de taille */
-            }
-
-            .hero-tagline {
-                font-size: 0.9rem;
-                margin-bottom: var(--spacing-sm);
-            }
-
-            .check-list {
-                margin: var(--spacing-sm) 0;
-                text-align: left;
-            }
-
-            .check-list li {
-                margin-bottom: 6px;
-                font-size: 13px;
-                padding-left: var(--spacing-md);
-                line-height: 1.3;
-            }
-
-            .hero-buttons {
-                margin-top: var(--spacing-sm);
-                flex-direction: column;
-                gap: var(--spacing-xs);
-            }
-
-            .btn {
-                padding: 12px var(--spacing-md);
-                font-size: 14px;
-            }
-
-            .hero-video-container iframe {
-                height: 180px; /* Visible mais compact */
-            }
-
-            .video-badge {
-                font-size: 10px;
-                top: -8px;
-                right: 8px;
-                padding: 4px 8px;
-            }
-
-            /* Container mobile - OPTIMISÉ */
-            .container {
-                padding: 0 var(--spacing-sm);
-            }
-
-            /* Sections suivantes - ESPACEMENT RÉDUIT */
-            .artist-showcase {
-                padding: var(--spacing-lg) 0;
-            }
-
-            .artist-showcase h2 {
-                font-size: 1.4rem;
-                margin-bottom: var(--spacing-sm);
-            }
-
-            .artist-types {
-                gap: var(--spacing-sm);
-            }
-
-            .artist-type {
-                min-width: 110px;
-                padding: var(--spacing-sm);
-            }
+        /* Photos Section */
+        .photos-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
         }
 
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 1.3rem;
-            }
+        .photos-section h2 {
+            font-family: 'Buenard', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            color: var(--secondary-color);
+        }
 
-            .hero-text .highlight-box {
-                padding: 1px 3px;
-                font-size: 0.8em;
-            }
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
 
-            .value-proposition {
-                font-size: 10px;
-                padding: 3px 6px;
-            }
+        .photo-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            aspect-ratio: 4/3;
+            background: var(--lighter-bg);
+        }
 
-            .check-list li {
-                font-size: 12px;
-            }
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
 
-            .hero-video-container iframe {
-                height: 160px;
-            }
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--light-bg), var(--lighter-bg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(50, 50, 66, 0.9);
+            color: white;
+            padding: var(--spacing-sm);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: var(--spacing-xl) 0;
+            background: var(--lighter-bg);
+        }
+
+        .comparison h2 {
+            font-family: 'Buenard', serif;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xl);
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .comparison-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 15px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .comparison-card.highlighted {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--white);
+        }
+
+        .comparison-card h3 {
+            font-family: 'Buenard', serif;
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .point-positive {
+            position: relative;
+            padding-left: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .point-positive::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .comparison-card.highlighted .point-positive::before {
+            color: var(--white);
+        }
+
+        /* Process Section */
+        .process {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+        }
+
+        .process h2 {
+            font-family: 'Buenard', serif;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xl);
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .step {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+            background: var(--lighter-bg);
+            padding: var(--spacing-lg);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(238, 101, 83, 0.1);
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-family: 'Buenard', serif;
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--secondary-color);
+        }
+
+        .step-content p {
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-xs);
+            font-size: 15px;
+        }
+
+        .step-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-content li {
+            position: relative;
+            padding-left: var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
+            color: var(--secondary-color);
+            font-size: 14px;
+        }
+
+        .step-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Examples Section */
+        .examples {
+            padding: var(--spacing-xl) 0;
+            background: var(--lighter-bg);
+        }
+
+        .examples h2 {
+            font-family: 'Buenard', serif;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xl);
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .examples-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .example-card {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .example-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .example-card::before {
+            content: '💡';
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+            display: block;
+        }
+
+        .example-card p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Communication Tools Section */
+        .communication-tools {
+            background: var(--light-bg);
+            padding: var(--spacing-lg);
+            border-radius: 15px;
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .communication-tools h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .tool-item {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tool-item strong {
+            display: block;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .tool-item p {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: var(--spacing-xl) 0;
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .stats h2 {
+            font-family: 'Buenard', serif;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+            display: block;
+            font-family: 'Buenard', serif;
+        }
+
+        .stat-card p {
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: var(--spacing-xl) 0;
+            background: var(--lighter-bg);
+        }
+
+        .testimonials h2 {
+            font-family: 'Buenard', serif;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xl);
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .testimonial-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            background: var(--white);
+            padding: var(--spacing-lg);
+            box-sizing: border-box;
+        }
+
+        .testimonial-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+        }
+
+        .testimonial-result {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 15px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: var(--spacing-md);
+            font-size: 14px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .testimonial-info h4 {
+            color: var(--secondary-color);
+            margin-bottom: 3px;
+            font-size: 16px;
+        }
+
+        .testimonial-role {
+            color: var(--text-gray);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .slider-control {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-control:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: var(--spacing-xl) 0;
+            background: var(--white);
+        }
+
+        .faq h2 {
+            font-family: 'Buenard', serif;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xl);
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .accordion {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .accordion-item.active {
+            background: var(--lighter-bg);
+        }
+
+        .accordion-header {
+            padding: var(--spacing-md);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .accordion-header:hover {
+            color: var(--primary-color);
+        }
+
+        .accordion-header::after {
+            content: '+';
+            position: absolute;
+            right: var(--spacing-md);
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+        }
+
+        .accordion-content-inner {
+            padding: 0 var(--spacing-md) var(--spacing-md);
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: var(--spacing-xl) 0;
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: 'Buenard', serif;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+
+        .guarantee {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 15px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: var(--spacing-lg);
+            font-size: 14px;
+        }
+
+        /* Form Styles */
+        .cta-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-field {
+            margin-bottom: var(--spacing-md);
+            text-align: left;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .form-field input,
+        .form-field select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            font-size: 15px;
+            transition: var(--transition);
+            background: var(--white);
+            color: var(--secondary-color);
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(238, 101, 83, 0.1);
+        }
+
+        .form-field.error input,
+        .form-field.error select {
+            border-color: var(--error-color);
+        }
+
+        .form-feedback {
+            color: var(--error-color);
+            font-size: 12px;
+            margin-top: var(--spacing-xs);
+            display: none;
+        }
+
+        .form-field.error .form-feedback {
+            display: block;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0;
+            text-align: left;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-top: 2px;
+        }
+
+        .form-checkbox label {
+            margin-bottom: 0;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .form-checkbox a {
+            color: var(--primary-light);
+            text-decoration: underline;
+        }
+
+        .form-checkbox a:hover {
+            color: var(--primary-accent);
+        }
+
+        .form.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-top: 1px solid #eee;
+            padding: var(--spacing-sm) 0;
+            transform: translateY(100%);
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta-content {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .text-center {
+            text-align: center;
         }
 
         /* Animations */
@@ -563,6 +1073,170 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
+
+        /* RESPONSIVE - MOBILE OPTIMISÉ ÉQUILIBRÉ */
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            /* Hero mobile équilibré */
+            .hero {
+                padding: 70px 0 30px; /* Plus aéré que la version trop serrée */
+                margin-top: 60px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg); /* Plus d'espace entre texte et vidéo */
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 1.6rem; 
+                margin-bottom: var(--spacing-sm); /* Plus d'espace */
+                line-height: 1.1;
+            }
+
+            .hero-text .highlight-box {
+                padding: 3px 6px; /* Équilibré */
+                font-size: 0.9em;
+                border-radius: 6px;
+            }
+
+            .hero-tagline {
+                font-size: 0.9rem;
+                margin-bottom: var(--spacing-md); /* Plus d'espace */
+            }
+
+            .value-proposition {
+                font-size: 12px;
+                margin-bottom: var(--spacing-sm); /* Plus d'espace */
+                padding: 6px var(--spacing-sm);
+            }
+
+            .check-list {
+                margin: var(--spacing-md) 0; /* Plus d'espace */
+            }
+
+            .check-list li {
+                margin-bottom: var(--spacing-xs);
+                font-size: 14px;
+                padding-left: var(--spacing-md);
+            }
+
+            .hero-buttons {
+                margin-top: var(--spacing-md); /* Plus d'espace */
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .btn {
+                padding: 12px var(--spacing-md);
+                font-size: 14px;
+            }
+
+            .hero-video-container iframe {
+                height: 200px; /* Taille équilibrée */
+            }
+
+            .video-badge {
+                font-size: 10px;
+                top: -10px;
+                right: 10px;
+            }
+
+            /* Autres sections */
+            .artist-showcase,
+            .photos-section,
+            .comparison,
+            .process,
+            .examples,
+            .stats,
+            .testimonials,
+            .faq,
+            .cta {
+                padding: var(--spacing-lg) 0;
+            }
+
+            .artist-showcase h2,
+            .photos-section h2,
+            .comparison h2,
+            .process h2,
+            .examples h2,
+            .stats h2,
+            .testimonials h2,
+            .faq h2,
+            .cta h2 {
+                font-size: 1.6rem;
+                margin-bottom: var(--spacing-md);
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+                padding: var(--spacing-md);
+            }
+
+            .examples-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-sm);
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+
+            .artist-types {
+                gap: var(--spacing-sm);
+            }
+
+            .artist-type {
+                min-width: 120px;
+                padding: var(--spacing-sm);
+            }
+
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .counter {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.4rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -594,7 +1268,7 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section - ULTRA-OPTIMISÉ MOBILE -->
+        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -651,7 +1325,422 @@
                 </div>
             </div>
         </section>
+
+        <!-- Photos Section -->
+        <section class="photos-section">
+            <div class="container">
+                <h2>Ils sont déjà sur Hormur</h2>
+                <div class="photos-grid">
+                    <div class="photo-card">
+                        <div class="photo-placeholder">🎭</div>
+                        <div class="photo-caption">Théâtre d'Ailes Ardentes - Lectures performatives</div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-placeholder">🎵</div>
+                        <div class="photo-caption">Ensemble Musiquam - Concerts de chambre</div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-placeholder">🎨</div>
+                        <div class="photo-caption">Studio Rubis - Lieu d'accueil 20 personnes</div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-placeholder">🎪</div>
+                        <div class="photo-caption">Carlouche Tribu - Concerts festifs et magiques</div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-placeholder">📚</div>
+                        <div class="photo-caption">Gaëlle Fiore - Spectacles de contes famille</div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-placeholder">🏢</div>
+                        <div class="photo-caption">Lieux professionnels - Déjà 600+ inscrits</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; color: var(--text-gray);">
+                    <em>Chaque semaine, de nouveaux artistes et lieux rejoignent Hormur</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison" id="inclusions">
+            <div class="container">
+                <h2>Pourquoi choisir Hormur pour développer votre lieu</h2>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card highlighted">
+                        <h3>Un avantage concurrentiel unique</h3>
+                        <div class="point-positive">Créez des expériences que vos concurrents ne peuvent pas reproduire</div>
+                        <div class="point-positive">Devenez la référence culturelle de votre secteur</div>
+                        <div class="point-positive">Générez un bouche-à-oreille naturel et positif</div>
+                    </div>
+                    <div class="comparison-card">
+                        <h3>Des résultats mesurables rapidement</h3>
+                        <div class="point-positive">85% de clients fidélisés après leur premier événement</div>
+                        <div class="point-positive">Note Google moyenne qui passe à 4,8/5</div>
+                        <div class="point-positive">Retour sur investissement dès le premier événement</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process">
+            <div class="container">
+                <h2>Comment ça fonctionne concrètement</h2>
+
+                <div class="steps">
+                    <div class="step animate-fade">
+                        <div class="step-number" aria-hidden="true">1</div>
+                        <div class="step-content">
+                            <h3>Évaluation gratuite de votre potentiel</h3>
+                            <p>En 5 minutes, nous analysons votre lieu :</p>
+                            <ul>
+                                <li>Type d'espace et capacité d'accueil</li>
+                                <li>Créneaux disponibles et clientèle</li>
+                                <li>Événements les mieux adaptés</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step animate-fade delay-1">
+                        <div class="step-number" aria-hidden="true">2</div>
+                        <div class="step-content">
+                            <h3>Nous trouvons vos artistes parfaits</h3>
+                            <p>Notre équipe gère tout :</p>
+                            <ul>
+                                <li>Sélection d'artistes adaptés à votre public</li>
+                                <li>Organisation complète : billetterie, assurance</li>
+                                <li>Vous validez chaque proposition</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step animate-fade delay-2">
+                        <div class="step-number" aria-hidden="true">3</div>
+                        <div class="step-content">
+                            <h3>Vous récoltez les bénéfices</h3>
+                            <p>Les résultats arrivent naturellement :</p>
+                            <ul>
+                                <li>Revenus directs : 180€ à 500€ par événement</li>
+                                <li>Fidélisation accrue de votre clientèle</li>
+                                <li>Visibilité renforcée et nouveaux clients</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="#join" class="btn btn-primary btn-large">Je découvre mon potentiel maintenant</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section class="examples">
+            <div class="container">
+                <h2>Résultats concrets par type de lieu</h2>
+                
+                <div class="examples-container">
+                    <div class="example-card">
+                        <p><strong>Librairie :</strong> Soirée lecture-spectacle, 40 places à 15€ = 180€ direct + augmentation des ventes de livres (+200€) = Total : 380€</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <p><strong>Boutique :</strong> Vernissage exclusif, 60 invités découvrent vos produits = +450€ de ventes + 15 nouvelles clientes fidèles acquises</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <p><strong>Coworking :</strong> Concert en soirée (espace libre après 19h) = 250€ billetterie + 8 nouveaux coworkers attirés</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <p><strong>Salon/Spa :</strong> Soirée culturelle pour clientes VIP = 12 nouvelles clientes en une soirée (valeur : +2400€/an)</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <p><strong>Showroom :</strong> Performance artistique interactive = visiteurs restent 2x plus longtemps = +300% de mémorisation</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <p><strong>Entreprise :</strong> After-work culturel pour prospects = 3 nouveaux contrats dans les 15 jours (ROI : +15 000€)</p>
+                    </div>
+                </div>
+                
+                <!-- Communication Tools -->
+                <div class="communication-tools">
+                    <h3>Bonus : Tous les outils de communication inclus</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <strong>Visuels prêts</strong>
+                            <p>Posts réseaux, affiches, flyers</p>
+                        </div>
+                        <div class="tool-item">
+                            <strong>Textes rédigés</strong>
+                            <p>Mails, SMS, descriptions</p>
+                        </div>
+                        <div class="tool-item">
+                            <strong>Accompagnement</strong>
+                            <p>Coaching pour maximiser la portée</p>
+                        </div>
+                    </div>
+                    <p style="color: var(--secondary-color); margin-top: var(--spacing-md); font-weight: 600;">Plus vous communiquez, plus l'événement réussit !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <h2>Nos résultats avec les professionnels</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="counter" data-target="600" aria-live="polite">0</div>
+                        <p>Lieux pros partenaires</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="counter" data-target="300" aria-live="polite">0</div>
+                        <p>€ de revenus moyens/événement</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="counter" data-target="85" aria-live="polite">0</div>
+                        <p>% de clients qui reviennent</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="counter" data-target="10" aria-live="polite">0</div>
+                        <p>Médias nationaux nous suivent</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>Témoignages de nos hôtes professionnels</h2>
+
+                <div class="testimonial-slider" aria-live="polite">
+                    <div class="testimonial-wrapper">
+                        <div class="testimonial" aria-label="Témoignage 1">
+                            <div class="testimonial-inner">
+                                <p class="testimonial-text">"Avant, ma librairie fermait ses portes à 19h et c'était fini. Aujourd'hui, avec les soirées Hormur, je crée de vrais moments de rencontre. Mes clients sont devenus des habitués passionnés et mes ventes ont explosé les soirs d'événements."</p>
+                                <p class="testimonial-result">+2800€ de revenus en 6 mois + 40% de fréquentation</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">CL</div>
+                                    <div class="testimonial-info">
+                                        <h4>Claire Lefebvre</h4>
+                                        <p class="testimonial-role">Librairie "Les Pages Tournées", Lyon</p>
+                                        <br><strong style="color: var(--primary-color);">"À tous ceux qui hésitent : c'est la meilleure décision business que j'ai prise !"</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial" aria-label="Témoignage 2">
+                            <div class="testimonial-inner">
+                                <p class="testimonial-text">"Les jeudis étaient nos soirées les plus calmes. Maintenant, c'est notre jour le plus demandé ! Les clients viennent pour l'artiste et découvrent nos produits. L'ambiance est magique et les ventes suivent naturellement."</p>
+                                <p class="testimonial-result">+60% de chiffre d'affaires sur les soirées culturelles</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">PD</div>
+                                    <div class="testimonial-info">
+                                        <h4>Pierre Dubois</h4>
+                                        <p class="testimonial-role">Gérant "Le Comptoir des Arts", Bordeaux</p>
+                                        <br><strong style="color: var(--primary-color);">"Le retour sur investissement est immédiat et vos clients vous adorent !"</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial" aria-label="Témoignage 3">
+                            <div class="testimonial-inner">
+                                <p class="testimonial-text">"Mon coworking se vidait après 18h, c'était du gâchis. Avec Hormur, nos soirées sont devenues rentables et attractives. De nouveaux coworkers nous choisissent spécifiquement pour cette ambiance culturelle unique."</p>
+                                <p class="testimonial-result">95% d'occupation + 15 nouveaux coworkers/mois</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">SM</div>
+                                    <div class="testimonial-info">
+                                        <h4>Sophie Martin</h4>
+                                        <p class="testimonial-role">Fondatrice "CoWork & Culture", Nantes</p>
+                                        <br><strong style="color: var(--primary-color);">"C'est la solution pour se différencier. Vos concurrents ne peuvent pas copier ça !"</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-control" id="prev-testimonial" aria-label="Témoignage précédent">←</button>
+                        <button class="slider-control" id="next-testimonial" aria-label="Témoignage suivant">→</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2>Vos questions fréquentes</h2>
+
+                <div class="accordion" role="region" aria-label="Foire aux questions">
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-1">Mon lieu est-il adapté aux événements culturels ?</div>
+                        <div class="accordion-content" id="accordion-content-1">
+                            <div class="accordion-content-inner">
+                                <p>La grande majorité des lieux professionnels peuvent accueillir des événements ! Librairies, boutiques, entreprises, coworking, salons... Notre évaluation gratuite vous dit immédiatement si c'est possible chez vous.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-2">Quels revenus puis-je espérer ?</div>
+                        <div class="accordion-content" id="accordion-content-2">
+                            <div class="accordion-content-inner">
+                                <p>Exemple concret : 30 places à 20€ = 600€ de billetterie. Vous touchez 30% = 180€ direct. Plus : vos clients consomment pendant l'événement = +200€ à 400€ selon votre activité. Total moyen : 300€ à 500€ par soirée.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-3">Que dois-je faire concrètement le jour J ?</div>
+                        <div class="accordion-content" id="accordion-content-3">
+                            <div class="accordion-content-inner">
+                                <p>Très peu de choses ! Vous ouvrez votre espace et accueillez les participants. Hormur s'occupe de tout le reste : artistes, billetterie, assurance, promotion, aspects techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-4">Y a-t-il des frais cachés ?</div>
+                        <div class="accordion-content" id="accordion-content-4">
+                            <div class="accordion-content-inner">
+                                <p>Aucun ! L'évaluation est gratuite, l'inscription est gratuite. Vous ne payez que si vous organisez des événements (commission sur les ventes). Pas d'abonnement, pas de frais de dossier.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="accordion-content-5">Puis-je refuser un événement proposé ?</div>
+                        <div class="accordion-content" id="accordion-content-5">
+                            <div class="accordion-content-inner">
+                                <p>Absolument ! Vous restez maître de votre lieu. Chaque événement vous est proposé et vous décidez librement selon vos critères. Aucun engagement, aucune obligation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section avec formulaire optimisé -->
+        <section id="join" class="cta">
+            <div class="container">
+                <h2>Développez votre lieu avec la culture</h2>
+                <p>Rejoignez les 600+ professionnels qui créent des expériences uniques, fidélisent leur clientèle et soutiennent les artistes.</p>
+                <div class="guarantee">
+                    <span>Évaluation gratuite - Réponse sous 24h - Aucun engagement</span>
+                </div>
+
+                <div class="cta-form">
+                    <div id="form-success" style="display: none; background-color: white; padding: 30px; border-radius: 8px; text-align: center; max-width: 500px; margin: 0 auto;">
+                        <div style="font-size: 50px; color: #EE6553; margin-bottom: 20px;">✓</div>
+                        <h3 style="color: #323242; font-size: 20px; margin-bottom: 20px;">
+                            Votre demande a été enregistrée !
+                        </h3>
+                        <p style="font-size: 15px; line-height: 1.6; color: #323242; margin-bottom: 15px; text-align: left;">
+                            Notre équipe analyse maintenant le potentiel de votre lieu et vous recontacte sous 24h avec un plan personnalisé.
+                        </p>
+                        <div style="background-color: #FCE5DD; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: left;">
+                            <h4 style="color: #EE6553; margin-bottom: 10px; font-size: 16px;">Prochaines étapes :</h4>
+                            <p style="margin-bottom: 8px; font-size: 14px;">📧 Vérifiez vos emails pour la confirmation</p>
+                            <p style="margin-bottom: 8px; font-size: 14px;">📞 Nous vous contactons sous 24h</p>
+                            <p style="margin-bottom: 8px; font-size: 14px;">🎯 Vous choisissez vos premiers événements</p>
+                            <p style="font-size: 14px;">🚀 Premier événement possible cette semaine !</p>
+                        </div>
+                        <p style="font-size: 14px; color: #323242; margin-top: 15px; font-weight: 600;">
+                            Vos clients vont adorer cette nouvelle dimension !
+                        </p>
+                    </div>
+
+                    <form id="host-signup-form" name="host-signup-form" method="POST">
+                        <div class="form-field">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Ex : Marie..." aria-required="true">
+                            <div class="form-feedback">Veuillez entrer votre prénom</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="lastName">Nom *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Ex : Martin..." aria-required="true">
+                            <div class="form-feedback">Veuillez entrer votre nom</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email">Adresse email *</label>
+                            <input type="email" id="email" name="email" required placeholder="adresse@email.com" aria-required="true">
+                            <div class="form-feedback">Veuillez entrer une adresse email valide</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="phone">Numéro de téléphone (facultatif)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                            <div class="form-feedback">Veuillez entrer un numéro de téléphone valide</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="password">Mot de passe *</label>
+                            <input type="password" id="password" name="password" required placeholder="Minimum 6 caractères" aria-required="true">
+                            <div class="form-feedback">Veuillez entrer un mot de passe (minimum 6 caractères)</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="confirmPassword">Confirmer le mot de passe *</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirmez votre mot de passe" aria-required="true">
+                            <div class="form-feedback">Les mots de passe ne correspondent pas</div>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="emailConsent" name="emailConsent">
+                            <label for="emailConsent">J'accepte de recevoir des informations par email
+                                <br><small style="opacity: 0.8;">(Propositions d'événements, conseils, accompagnement...)</small>
+                            </label>
+                        </div>
+
+                        <div style="font-size: 12px; color: white; opacity: 0.9; line-height: 1.4; margin: 15px 0; text-align: left;">
+                            Hormur traite vos données pour la gestion de votre compte. Consultez notre 
+                            <a href="https://hormur.com/privacy" target="_blank" style="color: var(--primary-light); text-decoration: underline;">politique de confidentialité</a>.
+                            En continuant, vous acceptez les 
+                            <a href="https://hormur.com/conditions" target="_blank" style="color: var(--primary-light); text-decoration: underline;">conditions d'utilisation</a> 
+                            et de <a href="https://stripe.com/fr-us/legal/end-users" target="_blank" style="color: var(--primary-light); text-decoration: underline;">Stripe</a>.
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-full" id="submit-button">
+                            Découvrir mon potentiel culturel
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sticky CTA -->
+        <div class="sticky-cta">
+            <div class="container sticky-cta-content">
+                <a href="#join" class="btn btn-primary">Découvrir mon potentiel</a>
+            </div>
+        </div>
     </main>
+
+    <footer>
+        <div class="container text-center" style="padding: var(--spacing-md) 0;">
+            <p style="font-size: 13px; opacity: 0.8;">© 2025 Hormur. Tous droits réservés.</p>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -690,7 +1779,7 @@
                     if (targetId === '#') return;
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        const headerHeight = window.innerWidth <= 768 ? 50 : 60;
+                        const headerHeight = 60;
                         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                         window.scrollTo({
                             top: targetPosition,
@@ -699,6 +1788,265 @@
                     }
                 });
             });
+
+            // Testimonial Slider
+            const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            const testimonials = document.querySelectorAll('.testimonial');
+
+            if (testimonialWrapper && prevBtn && nextBtn) {
+                let currentSlide = 0;
+                const totalSlides = testimonials.length;
+
+                function showSlide(index) {
+                    if (index < 0) index = totalSlides - 1;
+                    if (index >= totalSlides) index = 0;
+                    currentSlide = index;
+                    testimonialWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    testimonials.forEach((testimonial, i) => {
+                        testimonial.setAttribute('aria-hidden', i !== currentSlide);
+                    });
+                }
+
+                prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+                nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.setAttribute('aria-hidden', i !== 0);
+                });
+
+                // Auto-rotate testimonials
+                setInterval(() => {
+                    showSlide(currentSlide + 1);
+                }, 8000);
+            }
+
+            // FAQ Accordion
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                if (header) {
+                    header.addEventListener('click', toggleAccordion);
+                    header.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            toggleAccordion.call(this);
+                        }
+                    });
+
+                    function toggleAccordion() {
+                        accordionItems.forEach(accItem => {
+                            if (accItem !== item) {
+                                const accHeader = accItem.querySelector('.accordion-header');
+                                if (accHeader) {
+                                    accHeader.setAttribute('aria-expanded', 'false');
+                                    accItem.classList.remove('active');
+                                }
+                            }
+                        });
+                        const isExpanded = header.getAttribute('aria-expanded') === 'true';
+                        header.setAttribute('aria-expanded', !isExpanded);
+                        item.classList.toggle('active');
+                    }
+                }
+            });
+
+            // Counter Animation
+            const counters = document.querySelectorAll('.counter');
+            
+            function animateCounter(counter) {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const frameRate = 30;
+                const totalFrames = duration / 1000 * frameRate;
+                let frame = 0;
+
+                const animation = setInterval(() => {
+                    frame++;
+                    const progress = frame / totalFrames;
+                    const easedProgress = 1 - Math.pow(1 - progress, 3);
+                    const currentValue = Math.round(easedProgress * target);
+                    counter.textContent = currentValue.toLocaleString();
+                    if (frame === totalFrames) {
+                        clearInterval(animation);
+                    }
+                }, 1000 / frameRate);
+            }
+
+            // Intersection Observer for counters
+            if ('IntersectionObserver' in window) {
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                            entry.target.classList.add('animated');
+                            animateCounter(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.5,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+
+                counters.forEach(counter => {
+                    counterObserver.observe(counter);
+                });
+            }
+
+            // Sticky CTA
+            const stickyCta = document.querySelector('.sticky-cta');
+            const hero = document.querySelector('.hero');
+            const ctaSection = document.querySelector('.cta');
+
+            if (stickyCta && hero && ctaSection) {
+                function updateStickyCta() {
+                    const scrollPosition = window.scrollY;
+                    const heroHeight = hero.offsetHeight;
+                    const ctaTop = ctaSection.offsetTop;
+
+                    if (scrollPosition > heroHeight && scrollPosition < ctaTop - window.innerHeight) {
+                        stickyCta.classList.add('visible');
+                    } else {
+                        stickyCta.classList.remove('visible');
+                    }
+                }
+
+                window.addEventListener('scroll', updateStickyCta, { passive: true });
+            }
+
+            // Form Validation
+            const form = document.getElementById('host-signup-form');
+            
+            if (form) {
+                function validateEmail(email) {
+                    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return re.test(email);
+                }
+
+                function validatePassword(password) {
+                    return password.length >= 6;
+                }
+
+                function validatePhone(phone) {
+                    // Phone is optional, so it's valid if empty or if it matches a basic pattern
+                    if (!phone) return true;
+                    const re = /^[\d\s\-\+\(\)\.]{8,}$/;
+                    return re.test(phone);
+                }
+
+                function validateField(field) {
+                    const value = field.value.trim();
+                    let isValid = true;
+                    const formField = field.closest('.form-field');
+                    
+                    if (!formField) return true;
+                    
+                    formField.classList.remove('error');
+
+                    if (field.hasAttribute('required') && !value) {
+                        isValid = false;
+                    } else if (field.type === 'email' && value && !validateEmail(value)) {
+                        isValid = false;
+                    } else if (field.type === 'tel' && !validatePhone(value)) {
+                        isValid = false;
+                    } else if (field.id === 'password' && value && !validatePassword(value)) {
+                        isValid = false;
+                    } else if (field.id === 'confirmPassword') {
+                        const password = document.getElementById('password').value;
+                        if (value !== password) {
+                            isValid = false;
+                        }
+                    }
+
+                    if (!isValid) {
+                        formField.classList.add('error');
+                    }
+
+                    return isValid;
+                }
+
+                // Live validation
+                const formFields = form.querySelectorAll('input');
+                formFields.forEach(field => {
+                    field.addEventListener('blur', () => {
+                        validateField(field);
+                    });
+
+                    field.addEventListener('input', () => {
+                        const formField = field.closest('.form-field');
+                        if (formField) {
+                            formField.classList.remove('error');
+                        }
+                    });
+                });
+
+                // Form submission avec redirection vers signup-host
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    let isFormValid = true;
+                    formFields.forEach(field => {
+                        if (!validateField(field)) {
+                            isFormValid = false;
+                        }
+                    });
+
+                    if (!isFormValid) {
+                        const firstInvalidField = form.querySelector('.form-field.error input');
+                        if (firstInvalidField) {
+                            firstInvalidField.focus();
+                        }
+                        return false;
+                    }
+
+                    // Show loading state
+                    const submitButton = document.getElementById('submit-button');
+                    const originalButtonText = submitButton.textContent;
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Envoi en cours...';
+                    form.classList.add('loading');
+
+                    // Préparer les données pour préremplir le formulaire Hormur
+                    const formData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        password: document.getElementById('password').value,
+                        emailConsent: document.getElementById('emailConsent').checked
+                    };
+
+                    // Créer l'URL avec les paramètres pour préremplir le formulaire
+                    const params = new URLSearchParams();
+                    Object.keys(formData).forEach(key => {
+                        if (formData[key]) {
+                            params.append(key, formData[key]);
+                        }
+                    });
+
+                    // Simulation de soumission puis redirection vers Hormur avec données préremplies
+                    setTimeout(() => {
+                        // Option 1: Redirection avec URL params (plus simple et compatible)
+                        window.location.href = `https://hormur.com/signup-host?${params.toString()}`;
+                        
+                        // Option 2: Alternative si vous préférez afficher le message de succès d'abord
+                        /*
+                        form.style.display = 'none';
+                        document.getElementById('form-success').style.display = 'block';
+                        document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // Rediriger après 3 secondes
+                        setTimeout(() => {
+                            window.location.href = `https://hormur.com/signup-host?${params.toString()}`;
+                        }, 3000);
+                        */
+                        
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                        form.classList.remove('loading');
+                    }, 1000);
+                });
+            }
         });
     </script>
 </body>
