@@ -159,15 +159,15 @@
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 60px;
+            top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: #FFFFFF !important; /* Force le blanc opaque */
+            height: 100%;
+            background: #FFFFFF;
             padding: var(--spacing-lg);
-            z-index: 9999; /* Z-index plus élevé */
+            z-index: 9999;
             backdrop-filter: none;
-            opacity: 1 !important; /* Force l'opacité complète */
         }
 
         .mobile-menu.active {
