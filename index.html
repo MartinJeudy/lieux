@@ -146,7 +146,7 @@
             width: 100%;
         }
 
-        /* Mobile Menu - OPAQUE */
+        /* Mobile Menu - COMPLÈTEMENT OPAQUE */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -163,10 +163,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--white); /* Complètement opaque */
+            background: #FFFFFF !important; /* Force le blanc opaque */
             padding: var(--spacing-lg);
-            z-index: 999;
-            backdrop-filter: none; /* Supprimé pour éviter transparence */
+            z-index: 9999; /* Z-index plus élevé */
+            backdrop-filter: none;
+            opacity: 1 !important; /* Force l'opacité complète */
         }
 
         .mobile-menu.active {
@@ -188,7 +189,7 @@
             border-bottom: 1px solid #eee;
         }
 
-        /* Hero Section - COLLÉ AU HEADER */
+        /* Hero Section - COLLÉ AU HEADER SANS ESPACE */
         .hero {
             background: linear-gradient(135deg, var(--lighter-bg) 0%, var(--white) 100%);
             padding: 80px 0 40px;
@@ -1137,10 +1138,17 @@
                 display: block;
             }
 
-            /* Hero mobile */
+            /* Hero mobile - SANS BARRE BLANCHE */
             .hero {
                 padding: 70px 0 30px;
-                margin-top: 60px;
+                margin-top: 60px; /* Ajusté pour mobile */
+                background: linear-gradient(135deg, var(--lighter-bg) 0%, var(--white) 100%);
+            }
+
+            /* Suppression totale de l'espace blanc sur mobile */
+            body {
+                margin: 0;
+                padding: 0;
             }
 
             .hero-content {
