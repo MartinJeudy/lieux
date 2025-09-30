@@ -58,7 +58,7 @@
             padding: 0 var(--spacing-md);
         }
 
-        /* Header Styles */
+        /* Header Styles - SANS ESPACE */
         header {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -168,8 +168,6 @@
             background: #FFFFFF !important;
             padding: 80px var(--spacing-lg) var(--spacing-lg);
             z-index: 99999;
-            backdrop-filter: none;
-            opacity: 1 !important;
         }
 
         .mobile-menu.active {
@@ -191,7 +189,7 @@
             border-bottom: 1px solid #eee;
         }
 
-        /* Hero Section */
+        /* Hero Section - COLLÉ AU HEADER */
         .hero {
             background: linear-gradient(135deg, var(--lighter-bg) 0%, var(--white) 100%);
             padding: 80px 0 40px;
@@ -222,31 +220,18 @@
             font-size: 0.85em;
         }
 
-        /* Social Proof Bar - NOUVEAU */
-        .social-proof-bar {
-            display: flex;
-            gap: var(--spacing-lg);
-            justify-content: center;
+        /* Inline Social Proof - INTÉGRÉ DANS LE TEXTE */
+        .inline-proof {
+            display: inline-flex;
             align-items: center;
-            flex-wrap: wrap;
-            margin: var(--spacing-lg) 0;
-            padding: var(--spacing-md);
-            background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            gap: 5px;
+            font-size: 0.9em;
+            color: var(--text-gray);
         }
 
-        .social-proof-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .social-proof-stars {
+        .stars {
             color: #FFA500;
-            font-size: 16px;
+            font-size: 0.85em;
         }
 
         .hero-tagline {
@@ -946,7 +931,7 @@
             font-size: 14px;
         }
 
-        /* Form Styles - SIMPLIFIÉ */
+        /* Form Styles */
         .cta-form {
             max-width: 500px;
             margin: 0 auto;
@@ -1150,7 +1135,7 @@
             50% { transform: scale(1.05); }
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE - OPTIMISÉ MOBILE */
         @media (max-width: 768px) {
             .nav-desktop {
                 display: none;
@@ -1160,71 +1145,68 @@
                 display: block;
             }
 
+            /* Hero mobile - VIDÉO VISIBLE IMMÉDIATEMENT */
             .hero {
-                padding: 70px 0 30px;
+                padding: 60px 0 30px;
                 margin-top: 60px;
-                background: linear-gradient(135deg, var(--lighter-bg) 0%, var(--white) 100%);
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
             }
 
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
+                gap: var(--spacing-md);
                 text-align: center;
             }
 
+            /* Ordre inversé sur mobile : vidéo en PREMIER */
+            .hero-video-section {
+                order: -1;
+                margin-bottom: var(--spacing-md);
+            }
+
             .hero-text h1 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
                 margin-bottom: var(--spacing-sm);
-                line-height: 1.1;
             }
 
             .hero-text .highlight-box {
                 padding: 2px 6px;
                 font-size: 0.8em;
-                border-radius: 4px;
             }
 
-            .social-proof-bar {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-                padding: var(--spacing-sm);
+            .inline-proof {
+                font-size: 0.75em;
+                margin-top: 5px;
+                display: block;
             }
 
             .hero-tagline {
                 font-size: 0.9rem;
-                margin-bottom: var(--spacing-md);
+                margin-bottom: var(--spacing-sm);
             }
 
             .value-proposition {
-                font-size: 12px;
-                margin-bottom: var(--spacing-sm);
-                padding: 6px var(--spacing-sm);
+                font-size: 11px;
+                padding: 5px var(--spacing-sm);
             }
 
             .check-list {
-                margin: var(--spacing-md) 0;
+                margin: var(--spacing-sm) 0;
                 text-align: left;
             }
 
             .check-list li {
                 margin-bottom: var(--spacing-xs);
-                font-size: 14px;
-                padding-left: var(--spacing-md);
+                font-size: 13px;
             }
 
             .hero-buttons {
-                margin-top: var(--spacing-md);
+                margin-top: var(--spacing-sm);
                 flex-direction: column;
-                gap: var(--spacing-sm);
+                gap: var(--spacing-xs);
             }
 
             .btn {
-                padding: 12px var(--spacing-md);
+                padding: 10px var(--spacing-sm);
                 font-size: 14px;
             }
 
@@ -1233,9 +1215,8 @@
             }
 
             .video-badge {
-                font-size: 10px;
-                top: -10px;
-                right: 10px;
+                font-size: 9px;
+                padding: 4px 8px;
             }
 
             .artist-showcase,
@@ -1259,7 +1240,7 @@
             .testimonials h2,
             .faq h2,
             .cta h2 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
                 margin-bottom: var(--spacing-md);
             }
 
@@ -1298,7 +1279,7 @@
             }
 
             .artist-type {
-                min-width: 120px;
+                min-width: 100px;
                 padding: var(--spacing-sm);
             }
 
@@ -1307,13 +1288,13 @@
             }
 
             .counter {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero-text h1 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
 
             .stats-grid {
@@ -1351,7 +1332,7 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section -->
+        <!-- Hero Section - OPTIMISÉ MOBILE -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -1359,21 +1340,13 @@
                         <div class="value-proposition">Librairies • Boutiques • Coworking • Salons • Entreprises</div>
                         <h1>Touchez vos clients en <span class="highlight-box">accueillant des événements culturels</span> avec 4000+ artistes</h1>
                         
-                        <!-- NOUVELLE BARRE DE PREUVE SOCIALE -->
-                        <div class="social-proof-bar">
-                            <div class="social-proof-item">
-                                <span class="social-proof-stars">⭐⭐⭐⭐⭐</span>
-                                <span>4,8/5 sur Google</span>
-                            </div>
-                            <div class="social-proof-item">
-                                <span>✓ 600+ lieux partenaires</span>
-                            </div>
-                            <div class="social-proof-item">
-                                <span>✓ Vu sur France 2</span>
-                            </div>
-                        </div>
-
-                        <p class="hero-tagline">Développez votre activité, fidélisez votre clientèle et diversifiez vos sources de revenus en accueillant des expériences artistiques</p>
+                        <p class="hero-tagline">
+                            Développez votre activité, fidélisez votre clientèle et diversifiez vos sources de revenus en accueillant des expériences artistiques
+                            <br>
+                            <span class="inline-proof">
+                                <span class="stars">⭐⭐⭐⭐⭐</span> 4,8/5 sur Google • 600+ lieux • Vu sur France 2
+                            </span>
+                        </p>
 
                         <ul class="check-list">
                             <li><strong>Expériences mémorables</strong> : vos clients vivront des moments qu'ils n'oublieront jamais</li>
@@ -1543,7 +1516,6 @@
                     </div>
                 </div>
                 
-                <!-- Communication Tools -->
                 <div class="communication-tools">
                     <h3>Bonus : Tous les outils inclus pour réussir</h3>
                     <div class="tools-grid">
@@ -1714,7 +1686,7 @@
             </div>
         </section>
 
-        <!-- CTA Section FORMULAIRE SIMPLIFIÉ -->
+        <!-- CTA Section FORMULAIRE AVEC CHAMPS MOT DE PASSE -->
         <section id="join" class="cta">
             <div class="container">
                 <h2>Développez votre lieu avec la culture</h2>
@@ -1726,13 +1698,13 @@
                 <div class="cta-form">
                     <div id="form-success" class="form-success">
                         <div style="font-size: 50px; color: #EE6553; margin-bottom: 20px;">✓</div>
-                        <h3>Bienvenue dans la communauté Hormur !</h3>
-                        <p>Votre inscription est validée. Nous vous avons envoyé un email pour créer votre mot de passe et accéder à la plateforme.</p>
+                        <h3>Votre inscription est en cours de traitement !</h3>
+                        <p>Notre équipe analyse maintenant le potentiel de votre lieu et vous recontacte sous 24h avec un plan personnalisé.</p>
                         <div class="steps-info">
                             <h4>Prochaines étapes :</h4>
-                            <p>📧 Vérifiez vos emails (et spams si besoin)</p>
-                            <p>🔐 Créez votre mot de passe en un clic</p>
-                            <p>🎯 Configurez votre profil de lieu</p>
+                            <p>📧 Vérifiez vos emails pour la confirmation</p>
+                            <p>📞 Nous vous contactons sous 24h</p>
+                            <p>🎯 Vous choisissez vos premiers événements</p>
                             <p>🚀 Premier événement possible cette semaine !</p>
                         </div>
                         <p style="font-weight: 600; margin-top: 15px;">Vos clients vont adorer cette nouvelle dimension !</p>
@@ -1757,9 +1729,17 @@
                             <div class="form-feedback">Veuillez entrer une adresse email valide</div>
                         </div>
 
-                        <!-- Champs mot de passe masqués mais avec valeurs auto-générées -->
-                        <input type="hidden" id="password" name="password" value="">
-                        <input type="hidden" id="confirmPassword" name="confirmPassword" value="">
+                        <div class="form-field">
+                            <label for="password">Mot de passe *</label>
+                            <input type="password" id="password" name="password" required placeholder="Minimum 6 caractères" aria-required="true">
+                            <div class="form-feedback">Veuillez entrer un mot de passe (minimum 6 caractères)</div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="confirmPassword">Confirmer le mot de passe *</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirmez votre mot de passe" aria-required="true">
+                            <div class="form-feedback">Les mots de passe ne correspondent pas</div>
+                        </div>
 
                         <div class="form-checkbox">
                             <input type="checkbox" id="emailConsent" name="emailConsent" checked>
@@ -1779,10 +1759,6 @@
                         <button type="submit" class="btn btn-primary btn-large btn-full" id="submit-button">
                             Rejoindre les 600+ lieux (Gratuit)
                         </button>
-                        
-                        <p style="font-size: 13px; text-align: center; margin-top: 15px; color: white; opacity: 0.85;">
-                            ⚡ Vous recevrez un email pour créer votre mot de passe
-                        </p>
                     </form>
                 </div>
             </div>
@@ -1804,18 +1780,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Fonction de génération de mot de passe sécurisé
-            function generateSecurePassword(length = 16) {
-                const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*';
-                let password = '';
-                const array = new Uint32Array(length);
-                crypto.getRandomValues(array);
-                for (let i = 0; i < length; i++) {
-                    password += charset[array[i] % charset.length];
-                }
-                return password;
-            }
-
             // Mobile Menu Toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const mobileMenu = document.querySelector('.mobile-menu');
@@ -1992,6 +1956,10 @@
                     return re.test(email);
                 }
 
+                function validatePassword(password) {
+                    return password.length >= 6;
+                }
+
                 function validateField(field) {
                     const value = field.value.trim();
                     let isValid = true;
@@ -2005,6 +1973,13 @@
                         isValid = false;
                     } else if (field.type === 'email' && value && !validateEmail(value)) {
                         isValid = false;
+                    } else if (field.id === 'password' && value && !validatePassword(value)) {
+                        isValid = false;
+                    } else if (field.id === 'confirmPassword') {
+                        const password = document.getElementById('password').value;
+                        if (value !== password) {
+                            isValid = false;
+                        }
                     }
 
                     if (!isValid) {
@@ -2015,7 +1990,7 @@
                 }
 
                 // Live validation
-                const formFields = form.querySelectorAll('input[type="text"], input[type="email"]');
+                const formFields = form.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
                 formFields.forEach(field => {
                     field.addEventListener('blur', () => {
                         validateField(field);
@@ -2056,58 +2031,15 @@
                     submitButton.textContent = 'Inscription en cours...';
                     form.classList.add('loading');
 
-                    // Générer un mot de passe sécurisé
-                    const generatedPassword = generateSecurePassword(16);
-                    document.getElementById('password').value = generatedPassword;
-                    document.getElementById('confirmPassword').value = generatedPassword;
-
-                    try {
-                        // Préparer les données
-                        const firstName = document.getElementById('firstName').value;
-                        const lastName = document.getElementById('lastName').value;
-                        const email = document.getElementById('email').value;
-                        const emailConsent = document.getElementById('emailConsent').checked;
-
-                        // 1. Envoyer vers n8n webhook pour email du mot de passe
-                        fetch('https://n8n.srv971805.hstgr.cloud/webhook/4791e302-23d2-4f15-93ad-091cefccaaf5', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                firstName: firstName,
-                                email: email,
-                                password: generatedPassword
-                            })
-                        }).catch(err => console.log('Webhook envoyé'));
-
-                        // 2. Soumettre le formulaire vers Hormur
-                        // Attendre un peu pour que le formulaire se prépare
-                        setTimeout(() => {
-                            // Afficher le message de succès d'abord
-                            form.style.display = 'none';
-                            document.getElementById('form-success').style.display = 'block';
-                            document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            
-                            // Puis soumettre réellement le formulaire vers Hormur
-                            form.submit();
-                        }, 500);
-
-                    } catch (error) {
-                        console.log('Traitement en cours...');
-                        // Afficher le succès même en cas d'erreur
-                        setTimeout(() => {
-                            form.style.display = 'none';
-                            document.getElementById('form-success').style.display = 'block';
-                            document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            
-                            form.submit();
-                        }, 500);
-                    } finally {
-                        submitButton.disabled = false;
-                        submitButton.textContent = originalButtonText;
-                        form.classList.remove('loading');
-                    }
+                    // Afficher le message de succès
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        document.getElementById('form-success').style.display = 'block';
+                        document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // Soumettre le formulaire réellement vers Hormur
+                        form.submit();
+                    }, 500);
                 });
             }
         });
