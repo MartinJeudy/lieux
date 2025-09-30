@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description"
-        content="Transformez votre lieu en destination culturelle avec 4000+ artistes. Fidélisez vos clients, diversifiez vos revenus et créez des expériences uniques.">
+    <meta name="description" content="Transformez votre lieu en destination culturelle avec 4000+ artistes. Fidélisez vos clients, diversifiez vos revenus et créez des expériences uniques.">
     <meta name="theme-color" content="#EE6553">
     <title>Hormur Pro | Transformez votre lieu avec 4000+ artistes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Buenard:wght@700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Buenard:wght@700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -45,6 +41,11 @@
             --transition: all 0.3s ease;
         }
 
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Noto Sans', sans-serif;
             line-height: 1.6;
@@ -58,7 +59,7 @@
             padding: 0 var(--spacing-md);
         }
 
-        /* Header Styles - SANS ESPACE */
+        /* Header Styles */
         header {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -66,6 +67,7 @@
             position: fixed;
             width: 100%;
             top: 0;
+            left: 0;
             z-index: 1000;
         }
 
@@ -165,7 +167,7 @@
             bottom: 0;
             width: 100vw;
             height: 100vh;
-            background: #FFFFFF !important;
+            background: #FFFFFF;
             padding: 80px var(--spacing-lg) var(--spacing-lg);
             z-index: 99999;
         }
@@ -189,11 +191,11 @@
             border-bottom: 1px solid #eee;
         }
 
-        /* Hero Section - COLLÉ AU HEADER */
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--lighter-bg) 0%, var(--white) 100%);
             padding: 80px 0 40px;
-            margin-top: 60px;
+            margin-top: 59px;
         }
 
         .hero-content {
@@ -220,7 +222,6 @@
             font-size: 0.85em;
         }
 
-        /* Inline Social Proof - INTÉGRÉ DANS LE TEXTE */
         .inline-proof {
             display: inline-flex;
             align-items: center;
@@ -1135,7 +1136,7 @@
             50% { transform: scale(1.05); }
         }
 
-        /* RESPONSIVE - OPTIMISÉ MOBILE */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-desktop {
                 display: none;
@@ -1145,10 +1146,9 @@
                 display: block;
             }
 
-            /* Hero mobile - VIDÉO VISIBLE IMMÉDIATEMENT */
             .hero {
-                padding: 60px 0 30px;
-                margin-top: 60px;
+                padding: 20px 0 30px;
+                margin-top: 59px;
             }
 
             .hero-content {
@@ -1157,10 +1157,8 @@
                 text-align: center;
             }
 
-            /* Ordre inversé sur mobile : vidéo en PREMIER */
             .hero-video-section {
-                order: -1;
-                margin-bottom: var(--spacing-md);
+                margin-top: var(--spacing-md);
             }
 
             .hero-text h1 {
@@ -1332,7 +1330,6 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section - OPTIMISÉ MOBILE -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -1344,7 +1341,7 @@
                             Développez votre activité, fidélisez votre clientèle et diversifiez vos sources de revenus en accueillant des expériences artistiques
                             <br>
                             <span class="inline-proof">
-                                <span class="stars">⭐⭐⭐⭐⭐</span> 4,8/5 sur Google • 600+ lieux • Vu sur France 2
+                                <span class="stars">⭐⭐⭐⭐⭐</span> 4,8/5 sur Google • 900+ lieux • Vu sur TF1 & France 2
                             </span>
                         </p>
 
@@ -1355,7 +1352,7 @@
                         </ul>
 
                         <div class="hero-buttons">
-                            <a href="#join" class="btn btn-primary btn-large">Rejoindre les 600+ lieux (Gratuit)</a>
+                            <a href="#join" class="btn btn-primary btn-large">Rejoindre les 900+ lieux (Gratuit)</a>
                             <a href="#process" class="btn btn-secondary btn-large">Comment ça marche</a>
                         </div>
                     </div>
@@ -1373,7 +1370,6 @@
             </div>
         </section>
 
-        <!-- Artist Showcase Section -->
         <section class="artist-showcase">
             <div class="container">
                 <h2>4000+ artistes professionnels vous attendent</h2>
@@ -1396,7 +1392,6 @@
             </div>
         </section>
 
-        <!-- Photos Section -->
         <section class="photos-section">
             <div class="container">
                 <h2>Ils sont déjà sur Hormur</h2>
@@ -1404,17 +1399,17 @@
                     <div class="photo-card">
                         <img src="https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&h=600&fit=crop&q=80" 
                              alt="Spectacle théâtral en intérieur">
-                        <div class="photo-caption">Théâtre d'Ailes Ardentes – Lectures performatives</div>
+                        <div class="photo-caption">Théâtre d'Ailes Ardentes — Lectures performatives</div>
                     </div>
                     <div class="photo-card">
                         <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&h=600&fit=crop&q=80" 
                              alt="Concert de musique de chambre">
-                        <div class="photo-caption">Ensemble Musiquam – Concerts de chambre</div>
+                        <div class="photo-caption">Ensemble Musiquam — Concerts de chambre</div>
                     </div>
                     <div class="photo-card">
                         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop&q=80" 
                              alt="Espace événementiel culturel">
-                        <div class="photo-caption">600+ lieux professionnels partenaires</div>
+                        <div class="photo-caption">900+ lieux professionnels partenaires</div>
                     </div>
                 </div>
                 <p style="text-align: center; margin-top: 20px; color: var(--text-gray);">
@@ -1423,7 +1418,6 @@
             </div>
         </section>
 
-        <!-- Comparison Section -->
         <section class="comparison" id="inclusions">
             <div class="container">
                 <h2>Pourquoi choisir Hormur pour développer votre lieu</h2>
@@ -1445,7 +1439,6 @@
             </div>
         </section>
 
-        <!-- Process Section -->
         <section id="process" class="process">
             <div class="container">
                 <h2>Comment ça fonctionne concrètement</h2>
@@ -1497,7 +1490,6 @@
             </div>
         </section>
 
-        <!-- Examples Section -->
         <section class="examples">
             <div class="container">
                 <h2>Résultats concrets par type de lieu</h2>
@@ -1537,14 +1529,13 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
         <section class="stats">
             <div class="container">
                 <h2>Nos résultats avec les professionnels</h2>
 
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="counter" data-target="600" aria-live="polite">0</div>
+                        <div class="counter" data-target="900" aria-live="polite">0</div>
                         <p>Lieux pros partenaires</p>
                     </div>
 
@@ -1566,7 +1557,6 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
         <section id="testimonials" class="testimonials">
             <div class="container">
                 <h2>Témoignages de nos hôtes professionnels</h2>
@@ -1575,14 +1565,14 @@
                     <div class="testimonial-wrapper">
                         <div class="testimonial" aria-label="Témoignage 1">
                             <div class="testimonial-inner">
-                                <p class="testimonial-text">"Avant, ma librairie fermait ses portes à 19h et c'était fini. Aujourd'hui, avec les soirées Hormur, je crée de vrais moments de rencontre. Mes clients sont devenus des habitués passionnés et mes ventes ont explosé les soirs d'événements."</p>
-                                <p class="testimonial-result">+2800€ de revenus en 6 mois + 40% de fréquentation</p>
+                                <p class="testimonial-text">"J'organisais déjà des soirées lectures dans ma librairie, mais Hormur m'a ouvert à de nouveaux artistes et formats. Les concerts intimistes attirent un public différent qui découvre ensuite mes livres. L'ambiance est magique et mes clients adorent ces moments uniques."</p>
+                                <p class="testimonial-result">+35% de fréquentation les soirs d'événements</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-avatar">CL</div>
+                                    <div class="testimonial-avatar">MR</div>
                                     <div class="testimonial-info">
-                                        <h4>Claire Lefebvre</h4>
-                                        <p class="testimonial-role">Librairie "Les Pages Tournées", Lyon</p>
-                                        <br><strong style="color: var(--primary-color);">"À tous ceux qui hésitent : c'est la meilleure décision business que j'ai prise !"</strong>
+                                        <h4>Marie Roussel</h4>
+                                        <p class="testimonial-role">Librairie "La Page Tournée", Lyon</p>
+                                        <br><strong style="color: var(--primary-color);">"La plateforme facilite vraiment l'organisation et la mise en relation avec les artistes"</strong>
                                     </div>
                                 </div>
                             </div>
@@ -1590,14 +1580,14 @@
                         
                         <div class="testimonial" aria-label="Témoignage 2">
                             <div class="testimonial-inner">
-                                <p class="testimonial-text">"Les jeudis étaient nos soirées les plus calmes. Maintenant, c'est notre jour le plus demandé ! Les clients viennent pour l'artiste et découvrent nos produits. L'ambiance est magique et les ventes suivent naturellement."</p>
-                                <p class="testimonial-result">+60% de chiffre d'affaires sur les soirées culturelles</p>
+                                <p class="testimonial-text">"Transformer mon espace en lieu culturel certains soirs a complètement changé la dynamique. Les participants découvrent notre offre, reviennent en journée et recommandent l'endroit. C'est un vrai différenciateur face à la concurrence."</p>
+                                <p class="testimonial-result">+45% de nouveaux clients grâce aux événements</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-avatar">PD</div>
+                                    <div class="testimonial-avatar">TC</div>
                                     <div class="testimonial-info">
-                                        <h4>Pierre Dubois</h4>
-                                        <p class="testimonial-role">Gérant "Le Comptoir des Arts", Bordeaux</p>
-                                        <br><strong style="color: var(--primary-color);">"Le retour sur investissement est immédiat et vos clients vous adorent !"</strong>
+                                        <h4>Thomas Chevalier</h4>
+                                        <p class="testimonial-role">Café-restaurant "Le Comptoir", Bordeaux</p>
+                                        <br><strong style="color: var(--primary-color);">"Les outils de billetterie et communication fournis facilitent vraiment l'organisation"</strong>
                                     </div>
                                 </div>
                             </div>
@@ -1605,14 +1595,14 @@
                         
                         <div class="testimonial" aria-label="Témoignage 3">
                             <div class="testimonial-inner">
-                                <p class="testimonial-text">"Mon coworking se vidait après 18h, c'était du gâchis. Avec Hormur, nos soirées sont devenues rentables et attractives. De nouveaux coworkers nous choisissent spécifiquement pour cette ambiance culturelle unique."</p>
-                                <p class="testimonial-result">95% d'occupation + 15 nouveaux coworkers/mois</p>
+                                <p class="testimonial-text">"Nos espaces restaient vides après 19h. Maintenant, nous accueillons régulièrement des spectacles et concerts qui créent une vraie communauté. C'est devenu un argument de vente majeur pour attirer de nouveaux coworkers qui cherchent plus qu'un simple bureau."</p>
+                                <p class="testimonial-result">12 nouveaux abonnés mensuels en 3 mois</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-avatar">SM</div>
+                                    <div class="testimonial-avatar">AL</div>
                                     <div class="testimonial-info">
-                                        <h4>Sophie Martin</h4>
-                                        <p class="testimonial-role">Fondatrice "CoWork & Culture", Nantes</p>
-                                        <br><strong style="color: var(--primary-color);">"C'est la solution pour se différencier. Vos concurrents ne peuvent pas copier ça !"</strong>
+                                        <h4>Anne Lefebvre</h4>
+                                        <p class="testimonial-role">Espace de coworking "Le Lab", Nantes</p>
+                                        <br><strong style="color: var(--primary-color);">"Hormur nous aide à créer une identité culturelle forte qui nous distingue"</strong>
                                     </div>
                                 </div>
                             </div>
@@ -1627,7 +1617,6 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
         <section id="faq" class="faq">
             <div class="container">
                 <h2>Vos questions fréquentes</h2>
@@ -1686,11 +1675,10 @@
             </div>
         </section>
 
-        <!-- CTA Section FORMULAIRE AVEC CHAMPS MOT DE PASSE -->
         <section id="join" class="cta">
             <div class="container">
                 <h2>Développez votre lieu avec la culture</h2>
-                <p>Rejoignez les 600+ professionnels qui créent des expériences uniques, fidélisent leur clientèle et soutiennent les artistes.</p>
+                <p>Rejoignez les 900+ professionnels qui créent des expériences uniques, fidélisent leur clientèle et soutiennent les artistes.</p>
                 <div class="guarantee">
                     <span>✓ Inscription 100% gratuite • Sans engagement • Annulation à tout moment</span>
                 </div>
@@ -1757,14 +1745,13 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-large btn-full" id="submit-button">
-                            Rejoindre les 600+ lieux (Gratuit)
+                            Rejoindre les 900+ lieux (Gratuit)
                         </button>
                     </form>
                 </div>
             </div>
         </section>
 
-        <!-- Sticky CTA -->
         <div class="sticky-cta">
             <div class="container sticky-cta-content">
                 <a href="#join" class="btn btn-primary">Rejoindre gratuitement</a>
@@ -1780,7 +1767,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile Menu Toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -1806,7 +1792,6 @@
                 });
             }
 
-            // Smooth Scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -1824,7 +1809,6 @@
                 });
             });
 
-            // Testimonial Slider
             const testimonialWrapper = document.querySelector('.testimonial-wrapper');
             const prevBtn = document.getElementById('prev-testimonial');
             const nextBtn = document.getElementById('next-testimonial');
@@ -1856,7 +1840,6 @@
                 }, 8000);
             }
 
-            // FAQ Accordion
             const accordionItems = document.querySelectorAll('.accordion-item');
             accordionItems.forEach(item => {
                 const header = item.querySelector('.accordion-header');
@@ -1886,7 +1869,6 @@
                 }
             });
 
-            // Counter Animation
             const counters = document.querySelectorAll('.counter');
             
             function animateCounter(counter) {
@@ -1926,7 +1908,6 @@
                 });
             }
 
-            // Sticky CTA
             const stickyCta = document.querySelector('.sticky-cta');
             const hero = document.querySelector('.hero');
             const ctaSection = document.querySelector('.cta');
@@ -1947,7 +1928,6 @@
                 window.addEventListener('scroll', updateStickyCta, { passive: true });
             }
 
-            // FORM VALIDATION ET SOUMISSION
             const form = document.getElementById('host-signup-form');
             
             if (form) {
@@ -1989,7 +1969,6 @@
                     return isValid;
                 }
 
-                // Live validation
                 const formFields = form.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
                 formFields.forEach(field => {
                     field.addEventListener('blur', () => {
@@ -2004,11 +1983,9 @@
                     });
                 });
 
-                // SOUMISSION DU FORMULAIRE
                 form.addEventListener('submit', async function (e) {
                     e.preventDefault();
 
-                    // Validation
                     let isFormValid = true;
                     formFields.forEach(field => {
                         if (!validateField(field)) {
@@ -2024,21 +2001,28 @@
                         return false;
                     }
 
-                    // Show loading state
                     const submitButton = document.getElementById('submit-button');
                     const originalButtonText = submitButton.textContent;
                     submitButton.disabled = true;
                     submitButton.textContent = 'Inscription en cours...';
                     form.classList.add('loading');
 
-                    // Afficher le message de succès
+                    const formData = new FormData(form);
+
+                    try {
+                        await fetch('https://hormur.com/signup-host', {
+                            method: 'POST',
+                            body: formData,
+                            mode: 'no-cors'
+                        });
+                    } catch (error) {
+                        console.log('Soumission du formulaire...');
+                    }
+
                     setTimeout(() => {
                         form.style.display = 'none';
                         document.getElementById('form-success').style.display = 'block';
                         document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        
-                        // Soumettre le formulaire réellement vers Hormur
-                        form.submit();
                     }, 500);
                 });
             }
