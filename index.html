@@ -1698,7 +1698,9 @@
                         <p style="font-weight: 600; margin-top: 15px;">Vos clients vont adorer cette nouvelle dimension !</p>
                     </div>
 
-                    <form id="host-signup-form" action="https://hormur.com/signup-host" method="POST">
+                    <iframe name="hidden-form-iframe" id="hidden-form-iframe" style="display: none;"></iframe>
+                    
+                    <form id="host-signup-form" action="https://hormur.com/signup-host" method="POST" target="hidden-form-iframe">
                         <div class="form-field">
                             <label for="firstName">Prénom *</label>
                             <input type="text" id="firstName" name="firstName" required placeholder="Ex : Marie..." aria-required="true">
@@ -1983,7 +1985,7 @@
                     });
                 });
 
-                form.addEventListener('submit', async function (e) {
+                form.addEventListener('submit', function (e) {
                     e.preventDefault();
 
                     let isFormValid = true;
@@ -2002,28 +2004,21 @@
                     }
 
                     const submitButton = document.getElementById('submit-button');
-                    const originalButtonText = submitButton.textContent;
                     submitButton.disabled = true;
                     submitButton.textContent = 'Inscription en cours...';
                     form.classList.add('loading');
 
-                    const formData = new FormData(form);
-
-                    try {
-                        await fetch('https://hormur.com/signup-host', {
-                            method: 'POST',
-                            body: formData,
-                            mode: 'no-cors'
-                        });
-                    } catch (error) {
-                        console.log('Soumission du formulaire...');
-                    }
-
+                    // Afficher le message de succès
                     setTimeout(() => {
                         form.style.display = 'none';
                         document.getElementById('form-success').style.display = 'block';
                         document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 500);
+
+                    // Soumettre le formulaire réellement dans l'iframe caché
+                    setTimeout(() => {
+                        form.submit();
+                    }, 600);
                 });
             }
         });
