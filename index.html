@@ -1985,7 +1985,7 @@
                     });
                 });
 
-                form.addEventListener('submit', function (e) {
+                form.addEventListener('submit', async function (e) {
                     e.preventDefault();
 
                     let isFormValid = true;
@@ -2008,17 +2008,43 @@
                     submitButton.textContent = 'Inscription en cours...';
                     form.classList.add('loading');
 
-                    // Afficher le message de succès
-                    setTimeout(() => {
-                        form.style.display = 'none';
-                        document.getElementById('form-success').style.display = 'block';
-                        document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 500);
+                    // Préparer les données pour la Netlify Function
+                    const formData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('email').value,
+                        password: document.getElementById('password').value,
+                        emailConsent: document.getElementById('emailConsent').checked
+                    };
 
-                    // Soumettre le formulaire réellement dans l'iframe caché
-                    setTimeout(() => {
-                        form.submit();
-                    }, 600);
+                    try {
+                        // Envoyer vers la Netlify Function (qui redirigera vers n8n de manière sécurisée)
+                        const response = await fetch('/.netlify/functions/submit-host', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        });
+
+                        const result = await response.json();
+
+                        if (response.ok) {
+                            // Succès - afficher le message
+                            form.style.display = 'none';
+                            document.getElementById('form-success').style.display = 'block';
+                            document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            // Erreur du serveur
+                            throw new Error(result.error || 'Une erreur est survenue');
+                        }
+                    } catch (error) {
+                        console.error('Erreur:', error);
+                        alert('Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Rejoindre les 900+ lieux (Gratuit)';
+                        form.classList.remove('loading');
+                    }
                 });
             }
         });
