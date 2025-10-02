@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lieux.hormur.com/sitemap.xml
